@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+<style>
+	.container{
+		width: 800px;
+		padding: 0;
+		margin: auto;
+		position: relative;
+	}
+	.container img{height: 100%; display: block;}
+
+	.bgColor {height: 88px; display: block;}
+	.bgSection1 {background-color: #E9E5E2;}
+
+	/* 스와이퍼 영역 */
+		.swiper-bgStyle{
+		position: relative;
+		}
+		
+		.swiper-bgStyle-bgImg{
+		width: 100%;
+		height: 100%;
+		display: block;
+		}
+		
+		.detail-swiper {
+		width: 726px; 
+		position: absolute; 
+		bottom: -350px;
+		right: 0;
+		z-index: 100;
+		}
+		
+		.detail-swiper-slide {
+		text-align: .container;
+		font-size: 18px;
+		background: #fff;
+		display: flex;
+		justify-content: .container;
+		align-items: .container;		
+		}
+		
+		.detail-swiper-slide img {
+		  display: block;
+		  width: 100%;
+		  height: 100%;
+		  object-fit: cover;
+		}
+		
+		.pajamaSlide {width: 100%;}
+		.pajamaSlide img{width: 100%; margin: 0 auto;}
+
+		
+	@media screen and (min-width: 600px) {
+	.container {width: 800px; margin: 0 auto;}
+	}
+	
+	@media screen and (max-width: 600px) {
+	.container, .container img {width: 100%;}
+	.detail-swiper {width: 100%; bottom: -170px; right: 0;}
+	.pajamaSlide img{width: 100% !important; margin: 0 auto ;}
+	.bgColor {height: 28px; }
+	}
+</style>
+    </head>
+    <body>
+		<div class="container">
+			<div class="swiper pajamaSlide">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide swiper-pajamaSlide"><img src="http://vivien12.cafe24.com/promo/basic4th-1.jpg" alt=""></div>
+					<div class="swiper-slide swiper-pajamaSlide"><img src="http://vivien12.cafe24.com/promo/basic4th-1-1.jpg" alt=""></div>
+				</div>
+				<div class="swiper-pagination"></div>
+			</div>
+			<div><img src="http://vivien12.cafe24.com/promo/basic4th-2.jpg"></div>
+			<div><img src='http://vivien12.cafe24.com/promo/basic4th-2-plus.jpg' 
+				style="display: block; vertical-align: top; margin: 0px auto; text-align: center; cursor:pointer;"
+				name="close"
+				onClick="if(this.name == 'close')
+				{ this.src='http://vivien12.cafe24.com/promo/basic4th-2-minus.jpg';this.name='open' }
+				else{ this.src='http://vivien12.cafe24.com/promo/basic4th-2-plus.jpg';this.name='close'; }" /></div>
+			<div><img src="http://vivien12.cafe24.com/promo/basic4th-3.jpg"></div>
+			<div><img src="http://vivien12.cafe24.com/promo/basic4th-4.jpg"></div>
+			<div><a href="https://vivien-mall.com/product/detail.html?product_no=2887" target="_self"><img src="http://vivien12.cafe24.com/promo/basic4th-4-1.jpg"></a></div>
+			<div><a href="https://vivien-mall.com/product/detail.html?product_no=3257" target="_self"><img src="http://vivien12.cafe24.com/promo/basic4th-4-2.jpg"></a></div>
+			<div><a href="https://vivien-mall.com/product/detail.html?product_no=2887" target="_self"><img src="http://vivien12.cafe24.com/promo/basic4th-4-3.jpg"></a></div>
+			<div><a href="https://vivien-mall.com/product/detail.html?product_no=2939" target="_self"><img src="http://vivien12.cafe24.com/promo/basic4th-4-4.jpg"></a></div>
+			<div><a href="https://vivien-mall.com/product/detail.html?product_no=3753" target="_self"><img src="http://vivien12.cafe24.com/promo/basic4th-4-5.jpg"></a></div>
+			<div><a href="https://vivien-mall.com/product/detail.html?product_no=3751" target="_self"><img src="http://vivien12.cafe24.com/promo/basic4th-4-6.jpg"></a></div>
+			<div class="bgColor bgSection1"></div>
+			<div><img src='http://vivien12.cafe24.com/promo/basic4th-plus.jpg' 
+				style="display: block; vertical-align: top; margin: 0px auto 30px; text-align: center; cursor:pointer;"
+				name="close"
+				onClick="if(this.name == 'close')
+				{ this.src='http://vivien12.cafe24.com/promo/basic4th-minus.jpg';this.name='open' }
+				else{ this.src='http://vivien12.cafe24.com/promo/basic4th-plus.jpg';this.name='close'; }" /></div>
+		</div>
+		
+		<script>			
+			var swiper = new Swiper(".pajamaSlide", {
+			  spaceBetween: 30,
+			  effect: "fade",
+			  speed: 1200,
+			  loop: true,
+			  autoplay: {
+			  delay: 1200,
+			  disableOnInteraction: false,
+			  },
+			});
+		</script>
+    </body>
+</html>
+
+
+
+

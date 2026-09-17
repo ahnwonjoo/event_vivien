@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+<style>
+	div.container{
+		width: 800px;
+		padding: 0;
+		margin: auto;
+		position: relative;
+	}
+	div.container img{height: 100%; display: block;}
+
+	div.partition{
+		display: flex;
+	}
+    
+	#moreSection { 
+		display: flex;            /* flex 유지 */
+		visibility: hidden;       /* 안보이게 */
+		height: 0;                /* 공간 차지 않게 */
+		overflow: hidden;         /* 내용 안보이게 */
+		transition: visibility 0s, height 0.3s;
+		flex-wrap: wrap;          /* 여러 줄 가능 */
+}
+	#moreSection.active {
+		visibility: visible;     /* 보이게 */
+ 		 height: auto;
+}
+	#showMore {
+		cursor: pointer;
+		border: none;
+		background: none;
+		padding: 0;
+	}
+	#hideMore {
+		flex-basis: 100%;         /* 버튼 한 줄 차지 */
+		visibility: visible !important;  /* 항상 보이게 강제 */
+		cursor: pointer;
+		border: none;
+		background: none;
+		padding: 0;
+}
+	.bgColor {width: 800px; height: 100px; display: block;} 
+	.bgPk {background-color: #FFDBF0;}
+	.bgbk {background-color: #0E0B0E; height: 50px;}
+	.bgWh {background-color: #fff;}
+	@media screen and (min-width: 600px) {
+		div.container {width: 800px; margin: 0 auto;}
+		.unterFloating {display: none;}
+	}
+
+
+	@media screen and (max-width: 600px) {
+		div.container, div.container img {width: 100%;}
+		.bgColor{width: 100%; height: 50px;}
+		.bgbk{height: 20px;}
+		.ptause_timer_box .time_box { bottom:17.5vw; padding:0 15vw; }    
+		.ptause_timer_box .time_box span { width:0vw; height:13.5vw; font-size:11.2vw; }
+	}
+
+	.img { display:block; line-height:0; }
+    
+	.displaynone { display: none !important; } /*24시간 이상일 때는 좌측 텍스트 숨기기위해 꼭 필요*/
+	.ptause_timer_box .timer span  { font-family:'Noto Sans KR' !important;}
+
+	@import url('//fonts.googleapis.com/earlyaccess/notosanskr.css');
+	@import url('//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff');
+	@import url('//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff2');
+
+	.ptause_timer_box { position:relative; }
+	.ptause_timer_box .img_box { line-height:0; }
+	.ptause_timer_box .time_box { position:absolute; left:0; width:100%; z-index:1; bottom:135px; padding:0 120px; display:flex; -webkit-box-pack:justify; -ms-flex-pack:justify; justify-content:space-between; -webkit-box-sizing:border-box; -moz-box-sizing:border-box; box-sizing:border-box;}
+	.ptause_timer_box .time_box span { display:block; width:0px; 
+		height:110px; 
+		font-size:95px; 
+		font-weight:bold; 
+		text-align:center; 
+		color: #FFF;
+		display:-webkit-box; 
+		display:-webkit-flex; 
+		display:-ms-flexbox; 
+		display:flex; 
+		-webkit-align-items:center; 
+		align-items:center; 
+		-webkit-justify-content:center; 
+		justify-content:center;
+		}
+	
+    
+
+</style>
+		<div class="container">
+	        <div class="img"><img src="http://vivien12.cafe24.com/promo/bf25-1.jpg"></div>
+	        <div class="img"><img src="http://vivien12.cafe24.com/promo/bf25-2-title.jpg"></div>
+			<div class="partition">
+				<a href="#section1" target="_self"><img src="http://vivien12.cafe24.com/promo/bf25-2-1.jpg"></a>
+				<a href="#section2" target="_self"><img src="http://vivien12.cafe24.com/promo/bf25-2-2.jpg"></a>
+			</div>
+			<div class="partition">
+				<a href="#section3" target="_self"><img src="http://vivien12.cafe24.com/promo/bf25-2-3.jpg"></a>
+				<a href="#section4" target="_self"><img src="http://vivien12.cafe24.com/promo/bf25-2-4.jpg"></a>
+			</div>
+			<div id="section1">
+				<a href="http://vivien-mall.com/exec/front/newcoupon/IssueDownload?coupon_no=6083465532800000714&opener_url=/product/promo25/bf25.html?cate_no=257"
+				class="cpdBtn" target="_self">
+					<img src="http://vivien12.cafe24.com/promo/bf25-3.jpg"></a>
+			</div>
+			<div class="evenTguide img">
+				<img src='http://vivien12.cafe24.com/promo/bf25-3-plus.jpg' style="display: block; margin: 0px auto; text-align: center; cursor:pointer;"
+				name="close"
+				onClick="if(this.name == 'close'){ this.src='http://vivien12.cafe24.com/promo/bf25-3-minus.jpg';this.name='open' }
+				else{ this.src='http://vivien12.cafe24.com/promo/bf25-3-plus.jpg';this.name='close'; }" />
+			</div>
+			<div id="section2">
+				<div class="img"><img src="http://vivien12.cafe24.com/promo/bf25-4.jpg"></div>
+				<div class="evenTguide img">
+				<img src='http://vivien12.cafe24.com/promo/bf25-4-plus.jpg' style="display: block; margin: 0px auto; text-align: center; cursor:pointer;"
+				name="close"
+				onClick="if(this.name == 'close'){ this.src='http://vivien12.cafe24.com/promo/bf25-4-minus.jpg';this.name='open' }
+				else{ this.src='http://vivien12.cafe24.com/promo/bf25-4-plus.jpg';this.name='close'; }" />
+				<div class="partition">
+					<a href="https://vivien-mall.com/product/detail.html?product_no=3630" target="_self"><img src="http://vivien12.cafe24.com/promo/bf25-4-1.jpg"></a>
+					<a href="https://vivien-mall.com/product/detail.html?product_no=2799" target="_self"><img src="http://vivien12.cafe24.com/promo/bf25-4-2.jpg"></a>
+				</div>
+				<div class="partition">
+					<a href="https://vivien-mall.com/product/detail.html?product_no=2982" target="_self"><img src="http://vivien12.cafe24.com/promo/bf25-4-3.jpg"></a>
+					<a href="https://vivien-mall.com/product/detail.html?product_no=3617" target="_self"><img src="http://vivien12.cafe24.com/promo/bf25-4-4.jpg"></a>
+				</div>
+				<div class="partition">
+					<a href="https://vivien-mall.com/product/detail.html?product_no=2982" target="_self"><img src="http://vivien12.cafe24.com/promo/bf25-4-5.jpg"></a>
+					<a href="https://vivien-mall.com/product/detail.html?product_no=3421" target="_self"><img src="http://vivien12.cafe24.com/promo/bf25-4-6.jpg"></a>
+				</div>
+				</div>
+			</div>
+			<div class="bgColor bgPk"></div>
+			<div id="section3">
+				<div class="img"><img src="http://vivien12.cafe24.com/promo/bf25-5.jpg"></div>
+				<div class="img"><a href="https://vivien-mall.com/product/list.html?cate_no=744" target="_self"><img src="http://vivien12.cafe24.com/promo/bf25-5-bt.jpg"></a></div>
+			</div>
+			<div class="bgColor bgbk"></div>
+			<div id="section4">
+				<div class="img"><img src="http://vivien12.cafe24.com/promo/bf25-6.jpg"></a></div>
+				<div class="partition">
+					<a href="https://vivien-mall.com/product/detail.html?product_no=3039" target="_self"><img src="http://vivien12.cafe24.com/promo/bf25-6-1.jpg"></a>
+					<a href="https://vivien-mall.com/product/detail.html?product_no=3547" target="_self"><img src="http://vivien12.cafe24.com/promo/bf25-6-2.jpg"></a>
+				</div>
+				<div class="partition">
+					<a href="https://vivien-mall.com/product/detail.html?product_no=3360" target="_self"><img src="http://vivien12.cafe24.com/promo/bf25-6-3.jpg"></a>
+					<a href="https://vivien-mall.com/product/detail.html?product_no=3563" target="_self"><img src="http://vivien12.cafe24.com/promo/bf25-6-4.jpg"></a>
+				</div>
+				<div id="moreSection">
+					<div class="partition">
+						<a href="https://vivien-mall.com/product/detail.html?product_no=3034" target="_self"><img src="http://vivien12.cafe24.com/promo/bf25-6-5.jpg"></a>
+						<a href="https://vivien-mall.com/product/detail.html?product_no=3574" target="_self"><img src="http://vivien12.cafe24.com/promo/bf25-6-6.jpg"></a>
+					</div>
+					<div class="partition">
+						<a href="https://vivien-mall.com/product/detail.html?product_no=3485" target="_self"><img src="http://vivien12.cafe24.com/promo/bf25-6-7.jpg"></a>
+						<a href="https://vivien-mall.com/product/detail.html?product_no=3487" target="_self"><img src="http://vivien12.cafe24.com/promo/bf25-6-8.jpg"></a>
+					</div>
+					<button id="hideMore"><img src="https://vivien12.cafe24.com/promo/nomore.jpg"></button>
+				</div>
+				<button id="showMore"><img src="https://vivien12.cafe24.com/promo/viewmore.jpg"></button>
+			</div>
+			<div class="bgColor bgWh"></div>
+			<div class="evenTguide img">
+				<img src='http://vivien12.cafe24.com/promo/bf25-plus.jpg' style="display: block; margin: 0px auto; text-align: center; cursor:pointer;"
+				name="close"
+				onClick="if(this.name == 'close'){ this.src='http://vivien12.cafe24.com/promo/bf25-minus.jpg';this.name='open' }
+				else{ this.src='http://vivien12.cafe24.com/promo/bf25-plus.jpg';this.name='close'; }" />
+			</div>
+		</div>
+		<script>
+		  $(document).ready(function(){
+				var _second = 1000; 
+				var _minute = _second * 60; 
+				var _hour = _minute * 60; 
+				var _day = _hour * 24;
+
+				var temp_target = $("#ptause_timer");
+				if(temp_target.length>0 && temp_target.data('enddate')){
+					temp_target.append('<span class="d"></span><span class="h"></span><span class="m"></span><span class="s"></span>');
+					
+					var timer;			
+					var end_date = temp_target.data('endDate').replace(/(\s+)|:/g,'-').split('-');
+					var temp_date = new Date(end_date[0],(end_date[1]-1),end_date[2],end_date[3],end_date[4]);
+					function showRemaining() { 
+						var now = new Date(); 
+						var distDt = temp_date.getTime() - now.getTime(); 
+
+						if (distDt < 0) { 
+							clearInterval(timer); 
+							temp_target.find('.d').html('0'); 
+							temp_target.find('.h').html('0'); 
+							temp_target.find('.m').html('0'); 
+							temp_target.find('.s').html('0'); 
+							return; 
+						} 
+						var days = Math.floor(distDt / _day); 
+						var hours = Math.floor((distDt % _day) / _hour); 
+						var minutes = Math.floor((distDt % _hour) / _minute); 
+						var seconds = Math.floor((distDt % _minute) / _second); 
+						temp_target.find('.d').html(days+''); 
+						temp_target.find('.h').html(hours+''); 
+						temp_target.find('.m').html(minutes+''); 
+						temp_target.find('.s').html(seconds+''); 
+						temp_target.removeClass('displaynone');
+					}
+					timer = setInterval(showRemaining, 1000);
+				}
+			});
+			
+
+
+		// 부드럽게 섹션 이동
+    	$('a[href^="#"]').click(function(e) {
+			var href = $(this).attr('href');
+			if (href.length > 1 && $(href).length > 0) {
+				e.preventDefault();
+				var pos = $(href).offset().top;
+				$("html, body").animate({ scrollTop: pos }, 600);
+			}
+		});	
+        
+
+		// 더보기 기능 자바스크립트
+		  const moreSection = document.getElementById('moreSection');
+			const showBtn = document.getElementById('showMore');
+			const hideBtn = document.getElementById('hideMore');
+
+			showMore.addEventListener('click', function() {
+			moreSection.classList.add('active');
+			showMore.style.display = 'none';
+			});
+
+			hideMore.addEventListener('click', function() {
+			moreSection.classList.remove('active');
+			showMore.style.display = 'inline-block';
+			});
+		</script>
+</html>

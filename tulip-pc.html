@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+<style>
+	*{box-sizing: border-box; margin: 0; padding: 0;}
+	div.container{
+		width: 800px;
+		padding: 0;
+		margin: auto;
+		position: relative;
+	}
+	div.container img{height: 100%; display: block;}
+
+	div.partition{
+		display: flex;
+	}
+
+	div.tabMenu {
+    	display:block;
+        height:68px;
+    }
+	div.tabMenu .inner {
+		display: flex;
+	}
+	div.tabMenu .inner .tabButton{
+		display: inline-block;
+		width: 33.37%;
+		background-color: #F69087;
+		border: none;
+		color: #FACFCF;
+		text-align: center;
+		text-decoration: none;
+		font-size: 17px;
+		padding: 20px 0;
+		letter-spacing: 0px;
+        font-weight:400;
+        position:relative;
+		cursor : pointer;
+	}
+	div.tabMenu .inner .tabButton.active{ 
+        background:#EE5E5F;
+        color:#fff;
+		font-weight: 500;
+		/*text-shadow: 0 0 3px #D2A18B, 0 0 5px #FFF2C8;*/
+    }
+	div.tabMenu .inner .tabButton:before {
+    	content:'';
+        width:2px;
+        height:44px;
+        position:absolute;
+        top:15px;
+        left:-2px;
+        background:#FFC3C3;
+        display:block;
+        z-index:1;
+    }
+	div.tabMenu .inner .tabButton:first-child:before{display:none;}
+	div.tabMenu .inner .tabButton.active:before {display:none;}
+	div.tabMenu .inner .tabButton.active + .tabButton:before {display:none;}
+
+	div.tabMenu.fixed .inner { position:fixed; top:70px; left:50%; width:800px; margin-left:-400px; z-index:1000; background-color: #264587; /* 배경색이 없으면 클릭이 안 되는 경우가 있음 */ }
+
+	.btSubtext{font-size: 22px; letter-spacing: -2px; font-weight: 400;}
+	.btMaintext{font-size: 22px; letter-spacing: -2px; font-weight: 500;}
+
+	.bgColor {height: 88px; display: block;}
+	.bgSection3 {background-color: #F9E5DD;}
+	.bgSection4 {background-color: #FFCBC7;}
+	.pajamaSlide {width:100%;}
+	.swiper-pajamaSlide {
+	text-align: center;
+	font-size: 18px;
+	background: #F9E5DD;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	}
+
+	.swiper-pajamaSlide img {
+	display: block;
+	width: 80%; margin: 0 auto;
+	object-fit: cover;
+	}
+	
+	.swiper-pagination {position:static; background-color: #F9E5DD;}
+	.swiper-pagination-bullet {width: 16px; height: 16px;}
+	.swiper-pagination-bullet-active{background-color: #EA5E59;}
+		
+	@media screen and (min-width: 600px) {
+	div.container {width: 800px; margin: 0 auto;}
+	}
+
+	@media screen and (max-width: 600px) {
+	div.container, div.container img {width: 100%;}
+	.swiper-pagination-bullet {width: 12px; height: 12px;}
+	.swiper-pajamaSlide img {
+      width: 80% !important; margin: 0 auto;
+    }
+	}
+</style>
+		<div class="container"> 
+			<div><img src="http://vivien12.cafe24.com/promo/tulip-1.jpg"></div>
+			<div class="tabMenu">
+				<div class="inner">
+					<button type="button" class="tabButton active" data-target="section1">
+						<p class="btMaintext">봄격쿠폰</p>
+					</button>
+					<button type="button" class="tabButton" data-target="section2">
+						<p class="btMaintext">커버업 브라</p>
+					</button>
+					<button type="button" class="tabButton" data-target="section3">
+						<p class="btMaintext">New Arrival</p>
+					</button>
+					<button type="button" class="tabButton" data-target="section4">
+						<p class="btMaintext">26SS 더보기</p>
+					</button>
+				</div>
+			</div>
+			<div class="section1">
+				<div><img src="http://vivien12.cafe24.com/promo/tulip-2.jpg"></div>
+				<div><a href="/myshop/coupon/coupon.html" target="_self"><img src="http://vivien12.cafe24.com/promo/tulip-2-bt.jpg"></a></div>
+				<div><img src='http://vivien12.cafe24.com/promo/tulip-2-plus.jpg' 
+				style="display: block; vertical-align: top; margin: 0px auto; text-align: center; cursor:pointer;"
+				name="close"
+				onClick="if(this.name == 'close')
+				{ this.src='http://vivien12.cafe24.com/promo/tulip-2-minus.jpg';this.name='open' }
+				else{ this.src='http://vivien12.cafe24.com/promo/tulip-2-plus.jpg';this.name='close'; }" /></div>
+			</div>
+			<div class="section2">
+				<div><img src="http://vivien12.cafe24.com/promo/tulip-3.jpg"></div>
+				<div><img src="http://vivien12.cafe24.com/promo/tulip-3-title.jpg"></div>
+				<div><a href="https://vivien-mall.com/product/detail.html?product_no=2542" target="_self"><img src="http://vivien12.cafe24.com/promo/tulip-3-1.jpg"></a></div>
+				<div><a href="https://vivien-mall.com/product/detail.html?product_no=3271" target="_self"><img src="http://vivien12.cafe24.com/promo/tulip-3-2.jpg"></a></div>
+				<div><a href="https://vivien-mall.com/product/detail.html?product_no=2542" target="_self"><img src="http://vivien12.cafe24.com/promo/tulip-3-3.jpg"></a></div>
+				<div><a href="https://vivien-mall.com/product/detail.html?product_no=3668" target="_self"><img src="http://vivien12.cafe24.com/promo/tulip-3-4.jpg"></a></div>
+				<div><a href="https://vivien-mall.com/product/detail.html?product_no=3402" target="_self"><img src="http://vivien12.cafe24.com/promo/tulip-3-5.jpg"></a></div>
+				<div><a href="https://vivien-mall.com/product/detail.html?product_no=3400" target="_self"><img src="http://vivien12.cafe24.com/promo/tulip-3-6.jpg"></a></div>
+				<div><a href="https://vivien-mall.com/product/detail.html?product_no=3669" target="_self"><img src="http://vivien12.cafe24.com/promo/tulip-3-7.jpg"></a></div>
+				<div><img src="http://vivien12.cafe24.com/promo/tulip-3-tail.jpg"></div>
+				<div><img src='http://vivien12.cafe24.com/promo/tulip-3-plus.jpg' 
+				style="display: block; vertical-align: top; margin: 0px auto; text-align: center; cursor:pointer;"
+				name="close"
+				onClick="if(this.name == 'close')
+				{ this.src='http://vivien12.cafe24.com/promo/tulip-3-minus.jpg';this.name='open' }
+				else{ this.src='http://vivien12.cafe24.com/promo/tulip-3-plus.jpg';this.name='close'; }" /></div>
+			</div>
+			<div class="section3" id="newsection">
+				<div><img src="http://vivien12.cafe24.com/promo/tulip-4.jpg"></div>
+				<div><img src='http://vivien12.cafe24.com/promo/tulip-4-plus.jpg' 4
+				style="display: block; vertical-align: top; margin: 0px auto; text-align: center; cursor:pointer;"
+				name="close"
+				onClick="if(this.name == 'close')
+				{ this.src='http://vivien12.cafe24.com/promo/tulip-4-minus.jpg';this.name='open' }
+				else{ this.src='http://vivien12.cafe24.com/promo/tulip-4-plus.jpg';this.name='close'; }" /></div>
+				<div><img src="http://vivien12.cafe24.com/promo/tulip-5.jpg"></div>
+				<div class="swiper pajamaSlide">
+					<div class="swiper-wrapper">
+					<div class="swiper-slide swiper-pajamaSlide"><img src="http://vivien12.cafe24.com/promo/tulip-5-1.jpg" alt=""></div>
+					<div class="swiper-slide swiper-pajamaSlide"><img src="http://vivien12.cafe24.com/promo/tulip-5-2.jpg" alt=""></div>
+					<div class="swiper-slide swiper-pajamaSlide"><img src="http://vivien12.cafe24.com/promo/tulip-5-3.jpg" alt=""></div>
+					<div class="swiper-slide swiper-pajamaSlide"><img src="http://vivien12.cafe24.com/promo/tulip-5-4.jpg" alt=""></div>
+					</div>
+					<div class="swiper-pagination"></div>
+				</div>
+				<div><img src="http://vivien12.cafe24.com/promo/tulip-6.jpg"></div>
+				<div><a href="https://vivien-mall.com/product/detail.html?product_no=3813" target="_self"><img src="http://vivien12.cafe24.com/promo/tulip-6-1.jpg"></a></div>
+				<div><a href="https://vivien-mall.com/product/detail.html?product_no=3808" target="_self"><img src="http://vivien12.cafe24.com/promo/tulip-6-2.jpg"></a></div>
+				<div><a href="https://vivien-mall.com/product/detail.html?product_no=3813" target="_self"><img src="http://vivien12.cafe24.com/promo/tulip-6-3.jpg"></a></div>
+				<div><a href="https://vivien-mall.com/product/detail.html?product_no=3810" target="_self"><img src="http://vivien12.cafe24.com/promo/tulip-6-4.jpg"></a></div>
+				<div><a href="https://vivien-mall.com/product/detail.html?product_no=3809" target="_self"><img src="http://vivien12.cafe24.com/promo/tulip-6-5.jpg"></a></div>
+				<div><a href="https://vivien-mall.com/product/detail.html?product_no=3811" target="_self"><img src="http://vivien12.cafe24.com/promo/tulip-6-6.jpg"></a></div>
+				<div><a href="https://vivien-mall.com/product/detail.html?product_no=3812" target="_self"><img src="http://vivien12.cafe24.com/promo/tulip-6-7.jpg"></a></div>
+				<div><img src="http://vivien12.cafe24.com/promo/tulip-7.jpg"></div>
+				<div class="swiper pajamaSlide">
+					<div class="swiper-wrapper">
+					<div class="swiper-slide swiper-pajamaSlide"><img src="http://vivien12.cafe24.com/promo/tulip-7-1.jpg" alt=""></div>
+					<div class="swiper-slide swiper-pajamaSlide"><img src="http://vivien12.cafe24.com/promo/tulip-7-2.jpg" alt=""></div>
+					<div class="swiper-slide swiper-pajamaSlide"><img src="http://vivien12.cafe24.com/promo/tulip-7-3.jpg" alt=""></div>
+					<div class="swiper-slide swiper-pajamaSlide"><img src="http://vivien12.cafe24.com/promo/tulip-7-4.jpg" alt=""></div>
+					</div>
+					<div class="swiper-pagination"></div>
+				</div>
+				<div><img src="http://vivien12.cafe24.com/promo/tulip-8.jpg"></div>
+				<div><a href="https://vivien-mall.com/product/detail.html?product_no=3822" target="_self"><img src="http://vivien12.cafe24.com/promo/tulip-8-1.jpg"></a></div>
+				<div><a href="https://vivien-mall.com/product/detail.html?product_no=3823" target="_self"><img src="http://vivien12.cafe24.com/promo/tulip-8-2.jpg"></a></div>
+				<div><a href="https://vivien-mall.com/product/detail.html?product_no=3822" target="_self"><img src="http://vivien12.cafe24.com/promo/tulip-8-3.jpg"></a></div>
+				<div><a href="https://vivien-mall.com/product/detail.html?product_no=3825" target="_self"><img src="http://vivien12.cafe24.com/promo/tulip-8-4.jpg"></a></div>
+				<div><a href="https://vivien-mall.com/product/detail.html?product_no=3824" target="_self"><img src="http://vivien12.cafe24.com/promo/tulip-8-5.jpg"></a></div>
+				<div><a href="https://vivien-mall.com/product/detail.html?product_no=3826" target="_self"><img src="http://vivien12.cafe24.com/promo/tulip-8-6.jpg"></a></div>
+				<div><a href="https://vivien-mall.com/product/detail.html?product_no=3827" target="_self"><img src="http://vivien12.cafe24.com/promo/tulip-8-7.jpg"></a></div>
+				<div class="bgColor bgSection3"></div>
+			</div>
+			<div class="section4">
+				<div><img src="http://vivien12.cafe24.com/promo/tulip-9.jpg"></div>				
+				<div class="partition">
+					<a href="https://vivien-mall.com/product/detail.html?product_no=3773" target="_self"><img src="http://vivien12.cafe24.com/promo/tulip-9-1.jpg"></a>
+					<a href="https://vivien-mall.com/product/detail.html?product_no=3788" target="_self"><img src="http://vivien12.cafe24.com/promo/tulip-9-2.jpg"></a>
+				</div>
+				<div class="partition">
+					<a href="https://vivien-mall.com/product/detail.html?product_no=3434" target="_self"><img src="http://vivien12.cafe24.com/promo/tulip-9-3.jpg"></a>
+					<a href="https://vivien-mall.com/product/detail.html?product_no=2982" target="_self"><img src="http://vivien12.cafe24.com/promo/tulip-9-4.jpg"></a>
+				</div>
+				<div class="bgColor bgSection4"></div>
+			</div>
+			<div class="guide img"></div>
+			<img src='http://vivien12.cafe24.com/promo/tulip-plus.jpg' 
+			style="display: block; vertical-align: top; margin: 0px auto; text-align: center; cursor:pointer;"
+			name="close"
+			onClick="if(this.name == 'close')
+			{ this.src='http://vivien12.cafe24.com/promo/tulip-minus.jpg';this.name='open' }
+			else{ this.src='http://vivien12.cafe24.com/promo/tulip-plus.jpg';this.name='close'; }" />
+		</div>
+		<script>
+	$(document).ready(function() {
+    // 1. 변수 선언 (충돌 방지를 위해 v_ 접두사 사용)
+    var v_isScrolling = false; 
+
+    // 2. 탭 고정 및 활성화 체크 함수 (PC 전용)
+    function checkTabStatusPC() {
+        if (v_isScrolling) return; // 클릭 이동 중에는 자동 로직 중단
+
+        var PJ_scroll = $(window).scrollTop();
+        var $v_tab = $(".tabMenu");
+        var $v_inner = $(".tabMenu .inner");
+        
+        // PC 고정 헤더 높이 수동 설정 (70px)
+        var v_headerH = 70; 
+        
+        // 고정 시작점 계산 (약간의 여유값 -10)
+        var stickyStart = $v_tab.offset().top - v_headerH - 10;
+        // 고정 해제점 (하단 가이드 영역)
+        var stickyEnd = $(".guide").length ? $(".guide").offset().top - v_headerH - 100 : 99999;
+
+        if (PJ_scroll < stickyStart) {
+            $v_tab.removeClass('fixed');
+            $v_inner.css({'position': '', 'top': '', 'width': '', 'margin-left': '', 'left': ''});
+        } else if (PJ_scroll > stickyEnd) {
+            $v_tab.removeClass('fixed');
+            $v_inner.css({'position': '', 'top': '', 'width': '', 'margin-left': '', 'left': ''});
+        } else {
+            $v_tab.addClass('fixed');
+            $v_inner.css({
+                'position': 'fixed',
+                'top': v_headerH + 'px',
+                'left': '50%',
+                'width': '800px',
+                'margin-left': '-400px',
+                'z-index': '97',
+                'background': '#264587' 
+            });
+        }
+
+        // 섹션 활성화 (Active)
+        $(".container > div[class^=section]").each(function(){
+            var v_secTop = $(this).offset().top - (v_headerH + $v_tab.height() + 20);
+            if(PJ_scroll >= v_secTop && PJ_scroll < (v_secTop + $(this).height())){
+                var v_name = $(this).attr('class').split(' ')[0];
+                $(".tabButton").removeClass('active');
+                $(".tabButton[data-target='"+v_name+"']").addClass('active');
+            }
+        });
+    }
+
+    // 3. 윈도우 스크롤 이벤트 등록
+    $(window).scroll(function() {
+        checkTabStatusPC();
+    });
+
+    // 4. [PC 핵심] 탭 버튼 클릭 이동 (디프로모션 충돌 방지 및 강제 이동)
+    $(".tabButton").unbind('click').bind('click', function(e) {
+        e.preventDefault();
+        e.stopImmediatePropagation(); // 다른 스크립트 간섭 즉시 차단
+
+        var v_targetClass = $(this).attr('data-target');
+        var $v_targetElement = $("." + v_targetClass);
+
+        if ($v_targetElement.length > 0) {
+            // 즉시 클릭한 버튼 활성화
+            $(".tabButton").removeClass('active');
+            $(this).addClass('active');
+
+            // 스크롤 감지 잠금
+            v_isScrolling = true;
+
+            var v_moveOffset = 70; // PC 헤더 높이
+            var v_tabH = $(".tabMenu").height();
+            var v_targetPos = $v_targetElement.offset().top - (v_moveOffset + v_tabH - 2);
+
+            // 네이티브 스크롤로 강제 이동 (애니메이션 씹힘 방지)
+            window.scrollTo({
+                top: v_targetPos,
+                behavior: 'smooth'
+            });
+
+            // 이동 완료 후 잠금 해제
+            setTimeout(function() {
+                v_isScrolling = false;
+                checkTabStatusPC();
+            }, 800);
+        }
+    });
+
+    // 5. 페이지 로드 시 즉시 실행 (새로고침 대응)
+    setTimeout(function() {
+        checkTabStatusPC();
+    }, 300);
+});
+			var swiper = new Swiper(".pajamaSlide", {
+			  pagination: {
+				el: ".swiper-pagination",
+			  },
+			  autoplay: {
+				delay: 2800,
+				disableOnInteraction: false,
+			  },
+			  loop: true,
+			});
+		</script>
+</html>
+
+
+
+

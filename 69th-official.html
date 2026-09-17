@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+<style>
+	div.container{
+		width: 800px;
+		padding: 0;
+		margin: auto;
+		position: relative;
+	}
+	div.container img{height: 100%; display: block;}
+
+	div.partition{
+		display: flex;
+	}
+    
+	#moreSection { 
+		display: flex;            /* flex 유지 */
+		visibility: hidden;       /* 안보이게 */
+		height: 0;                /* 공간 차지 않게 */
+		overflow: hidden;         /* 내용 안보이게 */
+		transition: visibility 0s, height 0.3s;
+		flex-wrap: wrap;          /* 여러 줄 가능 */
+}
+	#moreSection.active {
+		visibility: visible;     /* 보이게 */
+ 		 height: auto;
+}
+	#showMore {
+		cursor: pointer;
+		border: none;
+		background: none;
+		padding: 0;
+	}
+	#hideMore {
+		flex-basis: 100%;         /* 버튼 한 줄 차지 */
+		visibility: visible !important;  /* 항상 보이게 강제 */
+		cursor: pointer;
+		border: none;
+		background: none;
+		padding: 0;
+}
+	.bgColor {width: 800px; height: 80px; display: block;} 
+	.bgWh {background-color: #FFF;}
+	.bgPk2 {background-color: #FFE8EF; height: 60px;}
+	
+	.img { display:block; line-height:0; }
+    
+	.displaynone { display: none !important; } /*24시간 이상일 때는 좌측 텍스트 숨기기위해 꼭 필요*/
+	.ptause_timer_box * { font-family:'Noto Sans KR' !important;}
+
+	@import url('//fonts.googleapis.com/earlyaccess/notosanskr.css');
+	@import url('//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff');
+	@import url('//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff2');
+
+	.ptause_timer_box { position:relative; }
+	.ptause_timer_box .img_box { line-height:0; }
+	.ptause_timer_box .time_box { position:absolute; left:0; width:100%; z-index:1; bottom:70px; padding:0 140px; display:flex; -webkit-box-pack:justify; -ms-flex-pack:justify; justify-content:space-between; -webkit-box-sizing:border-box; -moz-box-sizing:border-box; box-sizing:border-box;}
+	.ptause_timer_box .time_box span { display:block; width:0px; 
+		height:110px; 
+		font-size:95px; 
+		font-weight:bold; 
+		text-align:center; 
+		color: #FFF;
+		display:-webkit-box; 
+		display:-webkit-flex; 
+		display:-ms-flexbox; 
+		display:flex; 
+		-webkit-align-items:center; 
+		align-items:center; 
+		-webkit-justify-content:center; 
+		justify-content:center;
+		}
+	
+	.pre-swiper {
+		width: 100%;
+		height: 100%;
+		background-color: #FFDBE6;
+		}
+		
+		.pre-swiper-container {padding-right: ; box-sizing: border-box;}
+		
+		.pre-swiper-container{
+		text-align: center;
+		font-size: 18px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	
+		
+		/* Center slide text vertically */
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: -webkit-flex;
+		display: flex;
+		-webkit-box-pack: center; 
+		-ms-flex-pack: center;
+		-webkit-justify-content: center; 
+		justify-content: center;
+		-webkit-box-align: center;
+		-ms-flex-align: center;
+		-webkit-align-items: center;
+		align-items: center;
+		}
+
+		.pre-swiper-container img {
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		}
+		
+		.pre-swiper-container {
+		width: 100%;
+		}
+
+	
+    @media screen and (min-width: 600px) {
+		div.container {width: 800px; margin: 0 auto;}
+		.unterFloating {display: none;}
+	}
+
+
+	@media screen and (max-width: 600px) {
+		div.container, div.container img {width: 100%;}
+		.bgColor{width: 100%; height: 30px;}
+		.bgbk{height: 20px;}
+		.ptause_timer_box .time_box { bottom:9vw; padding:0 11vw; }    
+		.ptause_timer_box .time_box span { width:13.7vw; height:13.5vw; font-size:9.6vw; }
+	}
+
+
+</style>
+		<div class="container">
+			<video width="100%" playsinline autoplay loop muted style="display: block; margin-top: 0px;">
+				<source src="http://vivien12.cafe24.com/promo/69th-1.mp4" type="video/mp4"></source>
+			</video>
+	        <div class="img"><img src="http://vivien12.cafe24.com/promo/69th-2.jpg"></div>
+			<div class="img"><img src="http://vivien12.cafe24.com/promo/69th-3.jpg"></div>
+			<div><a href="#section1" target="_self"><img src="http://vivien12.cafe24.com/promo/69th-3-1.jpg"></a></div>
+			<div><a href="#section2" target="_self"><img src="http://vivien12.cafe24.com/promo/69th-3-2.jpg"></a></div>
+			<div><a href="#section3" target="_self"><img src="http://vivien12.cafe24.com/promo/69th-3-3.jpg"></a></div>
+			<div><a href="#section4" target="_self"><img src="http://vivien12.cafe24.com/promo/69th-3-4.jpg"></a></div>
+			<div><a href="#section5" target="_self"><img src="http://vivien12.cafe24.com/promo/69th-3-5.jpg"></a></div>
+			<div><a href="#section6" target="_self"><img src="http://vivien12.cafe24.com/promo/69th-3-6.jpg"></a></div>
+			<div class="bgColor bgWh"></div>
+			<div id="section1">	
+				<div class="img"><img src="http://vivien12.cafe24.com/promo/69th-4.jpg"></div>
+				<div class="img"><a href="http://vivien-mall.com/exec/front/newcoupon/IssueDownload?coupon_no=6085253650600000960&opener_url=/product/promo26/69th.html?cate_no=257"
+				class="cpdBtn" target="_self">
+					<img src="http://vivien12.cafe24.com/promo/69th-4-bt.jpg">
+				</a></div>
+				<div class="img">
+					<img src='http://vivien12.cafe24.com/promo/69th-4-plus.jpg' style="display: block; margin: 0px auto; text-align: center; cursor:pointer;"
+					name="close"
+					onClick="if(this.name == 'close'){ this.src='http://vivien12.cafe24.com/promo/69th-4-minus.jpg';this.name='open' }
+					else{ this.src='http://vivien12.cafe24.com/promo/69th-4-plus.jpg';this.name='close'; }" />
+				</div>
+			</div>
+			<div id="section2">	
+				<div class="img"><img src="http://vivien12.cafe24.com/promo/69th-5.jpg"></div>
+				<div class="partition">
+					<a href="https://vivien-mall.com/product/list.html?cate_no=768" target="_self"><img src="http://vivien12.cafe24.com/promo/69th-5-1.jpg"></a>
+					<a href="https://vivien-mall.com/product/list.html?cate_no=769" target="_self"><img src="http://vivien12.cafe24.com/promo/69th-5-2.jpg"></a>
+				</div>
+				<div class="img">
+					<img src='http://vivien12.cafe24.com/promo/69th-5-plus.jpg' style="display: block; margin: 0px auto; text-align: center; cursor:pointer;"
+					name="close"
+					onClick="if(this.name == 'close'){ this.src='http://vivien12.cafe24.com/promo/69th-5-minus.jpg';this.name='open' }
+					else{ this.src='http://vivien12.cafe24.com/promo/69th-5-plus.jpg';this.name='close'; }" />
+				</div>
+			</div>
+			<div id="section3">	
+				<div class="img"><img src="http://vivien12.cafe24.com/promo/69th-6.jpg"></div>
+				<div class="swiper pre-swiper pre-swiper-container">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide"><a href="https://vivien-mall.com/product/detail.html?product_no=3941" target="_self"><img src="https://vivien12.cafe24.com/promo/69th-6-1.jpg"></a></div>
+						<div class="swiper-slide"><a href="https://vivien-mall.com/product/detail.html?product_no=3937" target="_self"><img src="https://vivien12.cafe24.com/promo/69th-6-2.jpg"></a></div>
+					</div>
+				</div>
+				<div class="img"><a href="http://vivien-mall.com/product/list.html?cate_no=423" target="_self">
+					<img src="http://vivien12.cafe24.com/promo/69th-6-bt.jpg">
+				</a></div>
+			</div>
+			<div id="section4">
+				<div class="img"><a href="http://vivien-mall.com/product/list.html?cate_no=744" target="_self">
+					<img src="http://vivien12.cafe24.com/promo/69th-7.jpg">
+				</a></div>
+			</div>
+			<div id="section5" class="TIMEDEAL">
+				<div class="img"><img src="http://vivien12.cafe24.com/promo/69th-8.jpg"></div>
+				<div class="img"><a href="https://vivien-mall.com/product/detail.html?product_no=3773" target="_self">
+					<img src="http://vivien12.cafe24.com/promo/69th-8-bt.jpg">
+				</a></div>
+			</div>
+			<div id="section6">
+				<div class="img"><img src="http://vivien12.cafe24.com/promo/69th-9.jpg"></div>
+				<div class="partition">
+					<a href="https://vivien-mall.com/product/list.html?cate_no=438" target="_self"><img src="http://vivien12.cafe24.com/promo/69th-9-1.jpg"></a>
+					<a href="https://vivien-mall.com/product/list.html?cate_no=773" target="_self"><img src="http://vivien12.cafe24.com/promo/69th-9-2.jpg"></a>
+				</div>
+				<div class="bgColor bgPk2"></div>
+			</div>
+			<div class="evenTguide img">
+				<img src='http://vivien12.cafe24.com/promo/69th-plus.jpg' style="display: block; margin: 0px auto; text-align: center; cursor:pointer;"
+				name="close"
+				onClick="if(this.name == 'close'){ this.src='http://vivien12.cafe24.com/promo/69th-minus.jpg';this.name='open' }
+				else{ this.src='http://vivien12.cafe24.com/promo/69th-plus.jpg';this.name='close'; }" />
+			</div>
+		</div>
+		<script>
+		var swiper = new Swiper(".pre-swiper", {
+			//loop: true,//
+			autoplay: {
+				delay: 3300,
+				disableOnInteraction: false,
+			},
+			slidesPerView : '1.25',
+			spaceBetween: 26, // 간격 적당히
+			centeredSlides: true,
+			slidesOffsetBefore : 0,
+			slidesOffsetAfter : 10,
+		  });	
+
+		  $(document).ready(function(){
+		var _second = 1000; 
+		var _minute = _second * 60; 
+		var _hour = _minute * 60; 
+		var _day = _hour * 24;
+
+		var temp_target = $("#ptause_timer");
+		if(temp_target.length>0 && temp_target.data('enddate')){
+			temp_target.append('<span class="h"></span><span class="m"></span><span class="s"></span><span class="ss"></span>');
+			
+			var timer;			
+			var end_date = temp_target.data('endDate').replace(/(\s+)|:/g,'-').split('-');
+			var temp_date = new Date(end_date[0],(end_date[1]-1),end_date[2],end_date[3],end_date[4]);
+			function showRemaining() { 
+				var now = new Date(); 
+				var distDt = temp_date.getTime() - now.getTime(); 
+
+				if (distDt < 0) { 
+					clearInterval(timer); 
+					temp_target.find('.h').html('0'); 
+					temp_target.find('.m').html('0'); 
+					temp_target.find('.s').html('0'); 
+					temp_target.find('.ss').html('0'); 
+					return; 
+				} 
+				var hours = Math.floor(distDt / _hour); 
+				var minutes = Math.floor((distDt % _hour) / _minute); 
+				var seconds = Math.floor((distDt % _minute) / _second);
+				var microsec = Math.floor((distDt % _second) / 10);  // 0~99 사이로 줄이기
+                if (microsec < 10) microsec = '0' + microsec;
+				temp_target.find('.h').html(hours); 
+				temp_target.find('.m').html(minutes); 
+				temp_target.find('.s').html(seconds); 
+				temp_target.find('.ss').html(microsec); 
+				temp_target.removeClass('displaynone');
+			}
+			timer = setInterval(showRemaining, 1);
+		}
+	});
+			
+
+
+		// 부드럽게 섹션 이동
+    	$('a[href^="#"]').click(function(e) {
+			var href = $(this).attr('href');
+			if (href.length > 1 && $(href).length > 0) {
+				e.preventDefault();
+				var pos = $(href).offset().top;
+				$("html, body").animate({ scrollTop: pos }, 600);
+			}
+		});	
+        
+
+		// 더보기 기능 자바스크립트
+		  const moreSection = document.getElementById('moreSection');
+			const showBtn = document.getElementById('showMore');
+			const hideBtn = document.getElementById('hideMore');
+
+			showMore.addEventListener('click', function() {
+			moreSection.classList.add('active');
+			showMore.style.display = 'none';
+			});
+
+			hideMore.addEventListener('click', function() {
+			moreSection.classList.remove('active');
+			showMore.style.display = 'inline-block';
+			});
+
+		
+		  
+		</script>
+</html>

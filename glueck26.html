@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+<style>
+	*{box-sizing: border-box; margin: 0; padding: 0;}
+	div.container{
+		width: 800px;
+		padding: 0;
+		margin: auto;
+		position: relative;
+	}
+	div.container img{height: 100%; display: block;}
+
+	div.partition{
+		display: flex;
+	}
+
+	div.tabMenu {
+    	display:block;
+        height:96px;
+    }
+	div.tabMenu .inner {
+		display: flex;
+	}
+	div.tabMenu .inner .tabButton{
+		display: inline-block;
+		width: 33.37%;
+		background-color: #264587;
+		border: none;
+		color: #ACB7DB;
+		text-align: center;
+		text-decoration: none;
+		font-size: 17px;
+		padding: 20px 0;
+		letter-spacing: 0px;
+        font-weight:500;
+        position:relative;
+		cursor : pointer;
+		font-weight: 300;
+	}
+	div.tabMenu .inner .tabButton.active{ 
+        background:#C0D5FF;
+        color:#00138C;
+		font-weight: 500;
+		/*text-shadow: 0 0 3px #D2A18B, 0 0 5px #FFF2C8;*/
+    }
+	div.tabMenu .inner .tabButton:before {
+    	content:'';
+        width:2px;
+        height:44px;
+        position:absolute;
+        top:30px;
+        left:-2px;
+        background:#ACB7DB;
+        display:block;
+        z-index:1;
+    }
+	div.tabMenu .inner .tabButton:first-child:before{display:none;}
+	div.tabMenu .inner .tabButton.active:before {display:none;}
+	div.tabMenu .inner .tabButton.active + .tabButton:before {display:none;}
+
+	div.tabMenu.fixed .inner { position:fixed; top:70px; left:50%; width:800px; margin-left:-400px; z-index:1000; background-color: #264587; /* 배경색이 없으면 클릭이 안 되는 경우가 있음 */ }
+
+	.btSubtext{font-size: 22px; letter-spacing: -2px; font-weight: 400;}
+	.btMaintext{font-size: 22px; letter-spacing: -2px; font-weight: 700;}
+
+	.bgColor {height: 88px; display: block;}
+	.bgSkyblue {background-color: #DEE8FF;}
+	.bgWhite {background-color: #fff;}
+	.pre-swiper {
+		width: 100%;
+		height: 100%;
+		background-color: #;
+		}
+		
+		.pre-swiper-container {padding-right: 6%; box-sizing: border-box;}
+		
+		.pre-swiper-container{
+		text-align: center;
+		font-size: 18px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		
+		/* Center slide text vertically */
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: -webkit-flex;
+		display: flex;
+		-webkit-box-pack: center; 
+		-ms-flex-pack: center;
+		-webkit-justify-content: center; 
+		justify-content: center;
+		-webkit-box-align: center;
+		-ms-flex-align: center;
+		-webkit-align-items: center;
+		align-items: center;
+		}
+
+		.pre-swiper-container img {
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		}
+		
+		.pre-swiper-container {
+		width: 100%;
+		}
+		
+	@media screen and (min-width: 600px) {
+	div.container {width: 800px; margin: 0 auto;}
+	.pre-swiper-container img {margin-left: 18px;}
+	}
+
+	@media screen and (max-width: 600px) {
+	div.container, div.container img {width: 100%;}
+	.pre-swiper-container {margin: 0px;}
+	.pre-swiper-container img {width: 102% !important; margin-left: 8px;}
+	}
+</style>
+		<div class="container">
+			<div><img src="http://vivien12.cafe24.com/promo/glueck-1.jpg"></div>
+			<div class="tabMenu">
+				<div class="inner">
+					<button type="button" class="tabButton active" data-target="section1">
+						<p class="btSubtext">100% 당첨!</p>
+						<p class="btMaintext">복주머니 뽑기</p>
+					</button>
+					<button type="button" class="tabButton" data-target="section2">
+						<p class="btSubtext">추가 적립금</p>
+						<p class="btMaintext">＋1,000원 지급</p>
+					</button>
+					<button type="button" class="tabButton" data-target="section3">
+						<p class="btSubtext">베스트셀러</p>
+						<p class="btMaintext">재입고 특가</p>
+					</button>
+					<button type="button" class="tabButton" data-target="section4">
+						<p class="btSubtext">라스트피스</p>
+						<p class="btMaintext">균일가전</p>
+					</button>
+				</div>
+			</div>
+			<div class="section1">
+				<div><img src="http://vivien12.cafe24.com/promo/glueck-2.jpg"></div>
+				<div class="dpromotion-area" data-id="CACFBCCCBGAEBDDBIJJH"><br style="display:none;"/></div>
+				<div><img src="http://vivien12.cafe24.com/promo/glueck-2-list.jpg"></div>
+				<div><img src='http://vivien12.cafe24.com/promo/glueck-2-plus.jpg' 
+				style="display: block; vertical-align: top; margin: 0px auto; text-align: center; cursor:pointer;"
+				name="close"
+				onClick="if(this.name == 'close')
+				{ this.src='http://vivien12.cafe24.com/promo/glueck-2-minus.jpg';this.name='open' }
+				else{ this.src='http://vivien12.cafe24.com/promo/glueck-2-plus.jpg';this.name='close'; }" /></div>
+			</div>
+			<div class="section2">
+				<div><img src="http://vivien12.cafe24.com/promo/glueck-3.jpg"></div>
+			</div>
+			<div class="section3">
+				<div><img src="http://vivien12.cafe24.com/promo/glueck-4.jpg"></div>
+				<div class="partition">
+					<a href="https://vivien-mall.com/product/detail.html?product_no=2887" target="_self"><img src="http://vivien12.cafe24.com/promo/glueck-4-1.jpg"></a>
+					<a href="https://vivien-mall.com/product/detail.html?product_no=2939" target="_self"><img src="http://vivien12.cafe24.com/promo/glueck-4-2.jpg"></a>
+				</div>
+				<div class="partition">
+					<a href="https://vivien-mall.com/product/detail.html?product_no=3753" target="_self"><img src="http://vivien12.cafe24.com/promo/glueck-4-3.jpg"></a>
+					<a href="https://vivien-mall.com/product/detail.html?product_no=3257" target="_self"><img src="http://vivien12.cafe24.com/promo/glueck-4-4.jpg"></a>
+				</div>
+				<div class="partition">
+					<a href="https://vivien-mall.com/product/detail.html?product_no=2887" target="_self"><img src="http://vivien12.cafe24.com/promo/glueck-4-5.jpg"></a>
+					<a href="https://vivien-mall.com/product/detail.html?product_no=3751" target="_self"><img src="http://vivien12.cafe24.com/promo/glueck-4-6.jpg"></a>
+				</div>
+				<div class="bgColor bgWhite"></div>
+			</div>
+			<div class="section4">
+				<div><img src="http://vivien12.cafe24.com/promo/glueck-5.jpg"></div>
+				<div class="partition">
+					<a href="https://vivien1.cafe24.com/product/list.html?cate_no=765" target="_self"><img src="http://vivien12.cafe24.com/promo/glueck-5-1.jpg"></a>
+					<a href="https://vivien1.cafe24.com/product/list.html?cate_no=764" target="_self"><img src="http://vivien12.cafe24.com/promo/glueck-5-2.jpg"></a>
+					<a href="https://vivien1.cafe24.com/product/list.html?cate_no=763" target="_self"><img src="http://vivien12.cafe24.com/promo/glueck-5-3.jpg"></a>
+				</div>
+				<div class="bgColor bgSkyblue"></div>
+			</div>
+			<div class="guide img"></div>
+			<div><img src="https://vivien12.cafe24.com/promo/glueck-6.jpg"></div>
+			<div class="swiper pre-swiper pre-swiper-container">
+			  <div class="swiper-wrapper">
+				  <div class="swiper-slide"><a href="https://vivien-mall.com/product/detail.html?product_no=2542" target="_self"><img src="https://vivien12.cafe24.com/promo/glueck-6-1.jpg"></a></div>
+				  <div class="swiper-slide"><a href="https://vivien-mall.com/product/detail.html?product_no=3612" target="_self"><img src="https://vivien12.cafe24.com/promo/glueck-6-2.jpg"></a></div>
+				  <div class="swiper-slide"><a href="https://vivien-mall.com/product/detail.html?product_no=2982" target="_self"><img src="https://vivien12.cafe24.com/promo/glueck-6-3.jpg"></a></div>
+			   </div>
+			</div>
+				<img src='http://vivien12.cafe24.com/promo/glueck-plus.jpg' 
+				style="display: block; vertical-align: top; margin: 0px auto; text-align: center; cursor:pointer;"
+				name="close"
+				onClick="if(this.name == 'close')
+				{ this.src='http://vivien12.cafe24.com/promo/glueck-minus.jpg';this.name='open' }
+				else{ this.src='http://vivien12.cafe24.com/promo/glueck-plus.jpg';this.name='close'; }" />
+		</div>
+		<script>
+	$(document).ready(function() {
+    // 1. 변수 선언 (충돌 방지를 위해 v_ 접두사 사용)
+    var v_isScrolling = false; 
+
+    // 2. 탭 고정 및 활성화 체크 함수 (PC 전용)
+    function checkTabStatusPC() {
+        if (v_isScrolling) return; // 클릭 이동 중에는 자동 로직 중단
+
+        var PJ_scroll = $(window).scrollTop();
+        var $v_tab = $(".tabMenu");
+        var $v_inner = $(".tabMenu .inner");
+        
+        // PC 고정 헤더 높이 수동 설정 (70px)
+        var v_headerH = 70; 
+        
+        // 고정 시작점 계산 (약간의 여유값 -10)
+        var stickyStart = $v_tab.offset().top - v_headerH - 10;
+        // 고정 해제점 (하단 가이드 영역)
+        var stickyEnd = $(".guide").length ? $(".guide").offset().top - v_headerH - 100 : 99999;
+
+        if (PJ_scroll < stickyStart) {
+            $v_tab.removeClass('fixed');
+            $v_inner.css({'position': '', 'top': '', 'width': '', 'margin-left': '', 'left': ''});
+        } else if (PJ_scroll > stickyEnd) {
+            $v_tab.removeClass('fixed');
+            $v_inner.css({'position': '', 'top': '', 'width': '', 'margin-left': '', 'left': ''});
+        } else {
+            $v_tab.addClass('fixed');
+            $v_inner.css({
+                'position': 'fixed',
+                'top': v_headerH + 'px',
+                'left': '50%',
+                'width': '800px',
+                'margin-left': '-400px',
+                'z-index': '9999',
+                'background': '#264587' 
+            });
+        }
+
+        // 섹션 활성화 (Active)
+        $(".container > div[class^=section]").each(function(){
+            var v_secTop = $(this).offset().top - (v_headerH + $v_tab.height() + 20);
+            if(PJ_scroll >= v_secTop && PJ_scroll < (v_secTop + $(this).height())){
+                var v_name = $(this).attr('class').split(' ')[0];
+                $(".tabButton").removeClass('active');
+                $(".tabButton[data-target='"+v_name+"']").addClass('active');
+            }
+        });
+    }
+
+    // 3. 윈도우 스크롤 이벤트 등록
+    $(window).scroll(function() {
+        checkTabStatusPC();
+    });
+
+    // 4. [PC 핵심] 탭 버튼 클릭 이동 (디프로모션 충돌 방지 및 강제 이동)
+    $(".tabButton").unbind('click').bind('click', function(e) {
+        e.preventDefault();
+        e.stopImmediatePropagation(); // 다른 스크립트 간섭 즉시 차단
+
+        var v_targetClass = $(this).attr('data-target');
+        var $v_targetElement = $("." + v_targetClass);
+
+        if ($v_targetElement.length > 0) {
+            // 즉시 클릭한 버튼 활성화
+            $(".tabButton").removeClass('active');
+            $(this).addClass('active');
+
+            // 스크롤 감지 잠금
+            v_isScrolling = true;
+
+            var v_moveOffset = 70; // PC 헤더 높이
+            var v_tabH = $(".tabMenu").height();
+            var v_targetPos = $v_targetElement.offset().top - (v_moveOffset + v_tabH - 2);
+
+            // 네이티브 스크롤로 강제 이동 (애니메이션 씹힘 방지)
+            window.scrollTo({
+                top: v_targetPos,
+                behavior: 'smooth'
+            });
+
+            // 이동 완료 후 잠금 해제
+            setTimeout(function() {
+                v_isScrolling = false;
+                checkTabStatusPC();
+            }, 800);
+        }
+    });
+
+    // 5. 페이지 로드 시 즉시 실행 (새로고침 대응)
+    setTimeout(function() {
+        checkTabStatusPC();
+    }, 300);
+});
+			var swiper = new Swiper(".pre-swiper", {
+			//loop: true,//
+			autoplay: {
+				delay: 3300,
+				disableOnInteraction: false,
+			},
+			slidesPerView : '1.25',
+			spaceBetween: 26, // 간격 적당히
+			centeredSlides: true,
+			slidesOffsetBefore : 0,
+			slidesOffsetAfter : 10,
+		  });
+		</script>
+</html>
+
+
+
+

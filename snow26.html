@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+<style>
+	div.container{
+		width: 800px;
+		padding: 0;
+		margin: auto;
+		position: relative;
+	}
+	div.container img{height: 100%; display: block;}
+
+	div.partition{
+		display: flex;
+	}
+    
+	.bgColor {width: 800px; height: 100px; display: block;} 
+	.bgGr {background-color: #F5F5F5;}
+	.bgVi {background-color: #EDE4F3; height: 50px;}
+	.bgWh {background-color: #fff; height: 40px;}
+	.bgWh2 {background-color: #fff; height: 90px;}
+
+	.ptause_timer_box { position:relative; }
+	.ptause_timer_box .img_box { line-height:0; }
+	.ptause_timer_box .time_box { position:absolute; left:0; width:100%; z-index:1; bottom:135px; padding:0 120px; display:flex; -webkit-box-pack:justify; -ms-flex-pack:justify; justify-content:space-between; -webkit-box-sizing:border-box; -moz-box-sizing:border-box; box-sizing:border-box;}
+	.ptause_timer_box .time_box span { display:block; width:0px; 
+		height:110px; 
+		font-size:95px; 
+		font-weight:bold; 
+		text-align:center; 
+		color: #FFF;
+		display:-webkit-box; 
+		display:-webkit-flex; 
+		display:-ms-flexbox; 
+		display:flex; 
+		-webkit-align-items:center; 
+		align-items:center; 
+		-webkit-justify-content:center; 
+		justify-content:center;
+		}
+	
+	.pajamaSlide {width:100%;}
+	.swiper-pajamaSlide {
+      text-align: center;
+      font-size: 18px;
+      background: #FFF;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .swiper-pajamaSlide img {
+      display: block;
+      width: 80%; margin: 0 auto;
+      object-fit: cover;
+    }
+	
+	.swiper-pagination {position:static;}
+	.swiper-pagination-bullet {width: 16px; height: 16px;}
+	.swiper-pagination-bullet-active{background-color: #F84DAB;}
+
+	.pre-swiper {
+		width: 100%;
+		height: 100%;
+		background-color: ;
+		}
+		
+		.pre-swiper-container {padding-right: 6%; box-sizing: border-box;}
+		
+		.pre-swiper-container{
+		text-align: center;
+		font-size: 18px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	
+		
+		/* Center slide text vertically */
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: -webkit-flex;
+		display: flex;
+		-webkit-box-pack: center; 
+		-ms-flex-pack: center;
+		-webkit-justify-content: center; 
+		justify-content: center;
+		-webkit-box-align: center;
+		-ms-flex-align: center;
+		-webkit-align-items: center;
+		align-items: center;
+		}
+
+		.pre-swiper-container img {
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		}
+		
+		.pre-swiper-container {
+		width: 100%;
+		}
+
+	@media screen and (min-width: 600px) {
+		div.container {width: 800px; margin: 0 auto;}
+		.unterFloating {display: none;}
+			
+		.pre-swiper-slide {margin: 0 5px;}
+		.swiper-container {padding-right: 0%; }
+		.pre-swiper-container img {margin-left: 18px;}
+	}
+
+
+	@media screen and (max-width: 600px) {
+		div.container, div.container img {width: 100%;}
+		.bgColor{width: 100%; height: 50px;}
+		.bgVi {height: 24px;}
+		.bgWh {height: 20px;}
+		.bgWh2 {height: 50px;}
+		.ptause_timer_box .time_box { bottom:17.5vw; padding:0 15vw; }    
+		.ptause_timer_box .time_box span { width:0vw; height:13.5vw; font-size:11.2vw; }
+		.ptause_timer_box .time_box { bottom:17.5vw; padding:0 15vw; }    
+		.ptause_timer_box .time_box span { width:0vw; height:13.5vw; font-size:11.2vw; }
+		.swiper-pagination-bullet {width: 12px; height: 12px;}
+		.swiper-pajamaSlide img {
+		width: 80% !important; margin: 0 auto;
+		}
+		.pre-swiper-container {margin: 0px;}
+		.pre-swiper-container img {width: 102% !important; margin-left: 8px;}
+	}
+
+	.img { display:block; line-height:0; }
+    
+	.displaynone { display: none !important; } /*24시간 이상일 때는 좌측 텍스트 숨기기위해 꼭 필요*/
+	.ptause_timer_box .timer span  { font-family:'Noto Sans KR' !important;}
+
+	@import url('//fonts.googleapis.com/earlyaccess/notosanskr.css');
+	@import url('//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff');
+	@import url('//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff2');
+
+	.ptause_timer_box { position:relative; }
+	.ptause_timer_box .img_box { line-height:0; }
+	.ptause_timer_box .time_box { position:absolute; left:0; width:100%; z-index:1; bottom:135px; padding:0 120px; display:flex; -webkit-box-pack:justify; -ms-flex-pack:justify; justify-content:space-between; -webkit-box-sizing:border-box; -moz-box-sizing:border-box; box-sizing:border-box;}
+	.ptause_timer_box .time_box span { display:block; width:0px; 
+		height:110px; 
+		font-size:95px; 
+		font-weight:bold; 
+		text-align:center; 
+		color: #FFF;
+		display:-webkit-box; 
+		display:-webkit-flex; 
+		display:-ms-flexbox; 
+		display:flex; 
+		-webkit-align-items:center; 
+		align-items:center; 
+		-webkit-justify-content:center; 
+		justify-content:center;
+		}
+
+</style>
+		<div class="container">
+	        <div class="img"><img src="http://vivien12.cafe24.com/promo/snow26-1.jpg"></div>
+	        <div class="img"><img src="http://vivien12.cafe24.com/promo/snow26-2.jpg"></div>
+			<div class="partition">
+				<a href="#section1" target="_self"><img src="http://vivien12.cafe24.com/promo/snow26-2-01.jpg"></a>
+				<a href="#section2" target="_self"><img src="http://vivien12.cafe24.com/promo/snow26-2-02.jpg"></a>
+			</div>
+			<div class="partition">
+				<a href="#section3" target="_self"><img src="http://vivien12.cafe24.com/promo/snow26-2-03.jpg"></a>
+				<a href="#section4" target="_self"><img src="http://vivien12.cafe24.com/promo/snow26-2-04.jpg"></a>
+			</div>
+			<div id="section1">
+				<div class="img"><img src="http://vivien12.cafe24.com/promo/snow26-3.jpg"></a></div>
+				<div class="evenTguide img">
+				<img src='http://vivien12.cafe24.com/promo/snow26-3-plus.jpg' style="display: block; margin: 0px auto; text-align: center; cursor:pointer;"
+				name="close"
+				onClick="if(this.name == 'close'){ this.src='http://vivien12.cafe24.com/promo/snow26-3-minus.jpg';this.name='open' }
+				else{ this.src='http://vivien12.cafe24.com/promo/snow26-3-plus.jpg';this.name='close'; }" />
+				</div>
+				<div class="img"><img src="http://vivien12.cafe24.com/promo/snow26-4.jpg"></div>
+				<div class="img">
+					<a href="https://vivien-mall.com/product/detail.html?product_no=2751" target="_self">
+						<img src="http://vivien12.cafe24.com/promo/snow26-4-1.jpg">
+					</a>
+				</div>
+				<div class="img">
+					<a href="https://vivien-mall.com/product/detail.html?product_no=3767" target="_self">
+						<img src="http://vivien12.cafe24.com/promo/snow26-4-2.jpg">
+					</a>
+				</div>
+				<div class="img">
+					<a href="https://vivien-mall.com/product/detail.html?product_no=2751" target="_self">
+						<img src="http://vivien12.cafe24.com/promo/snow26-4-3.jpg">
+					</a>
+				</div>
+				<div class="img">
+					<a href="https://vivien-mall.com/product/detail.html?product_no=3558" target="_self">
+						<img src="http://vivien12.cafe24.com/promo/snow26-4-4.jpg">
+					</a>
+				</div>
+				<div class="img">
+					<a href="https://vivien-mall.com/product/detail.html?product_no=3382" target="_self">
+						<img src="http://vivien12.cafe24.com/promo/snow26-4-5.jpg">
+					</a>
+				</div>
+				<div class="img">
+					<a href="https://vivien-mall.com/product/detail.html?product_no=3770" target="_self">
+						<img src="http://vivien12.cafe24.com/promo/snow26-4-6.jpg">
+					</a>
+				</div>
+				<div class="bgColor bgGr"></div>
+				<div class="img"><img src="http://vivien12.cafe24.com/promo/snow26-5.jpg"></div>
+				<div class="swiper pajamaSlide">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide swiper-pajamaSlide"><img src="http://vivien12.cafe24.com/promo/snow26-5-1.jpg" alt=""></div>
+						<div class="swiper-slide swiper-pajamaSlide"><img src="http://vivien12.cafe24.com/promo/snow26-5-2.jpg" alt=""></div>
+						<div class="swiper-slide swiper-pajamaSlide"><img src="http://vivien12.cafe24.com/promo/snow26-5-3.jpg" alt=""></div>
+					</div>
+				<div class="swiper-pagination"></div>
+				<div class="bgColor bgWh"></div>
+				<div class="img"><img src="http://vivien12.cafe24.com/promo/snow26-6.jpg"></div>
+				<div class="img">
+					<a href="https://vivien-mall.com/product/detail.html?product_no=3773" target="_self">
+						<img src="http://vivien12.cafe24.com/promo/snow26-6-1.jpg">
+					</a>
+				</div>
+				<div class="img">
+					<a href="https://vivien-mall.com/product/detail.html?product_no=3778" target="_self">
+						<img src="http://vivien12.cafe24.com/promo/snow26-6-2.jpg">
+					</a>
+				</div>
+				<div class="img">
+					<a href="https://vivien-mall.com/product/detail.html?product_no=3773" target="_self">
+						<img src="http://vivien12.cafe24.com/promo/snow26-6-3.jpg">
+					</a>
+				</div>
+				<div class="img">
+					<a href="https://vivien-mall.com/product/detail.html?product_no=3782" target="_self">
+						<img src="http://vivien12.cafe24.com/promo/snow26-6-4.jpg">
+					</a>
+				</div>
+				<div class="img">
+					<a href="https://vivien-mall.com/product/detail.html?product_no=3779" target="_self">
+						<img src="http://vivien12.cafe24.com/promo/snow26-6-5.jpg">
+					</a>
+				</div>
+				<div class="img">
+					<a href="https://vivien-mall.com/product/detail.html?product_no=3783" target="_self">
+						<img src="http://vivien12.cafe24.com/promo/snow26-6-6.jpg">
+					</a>
+				</div>
+				<div class="img">
+					<a href="https://vivien-mall.com/product/detail.html?product_no=3784" target="_self">
+						<img src="http://vivien12.cafe24.com/promo/snow26-6-7.jpg">
+					</a>
+				</div>
+				<div class="bgColor bgGr"></div>
+				</div>
+			</div>
+			<div id="section2">
+				<div class="img"><img src="http://vivien12.cafe24.com/promo/snow26-7.jpg"></div>
+				<div class="partition">
+					<a href="/product/list.html?cate_no=415" target="_self"><img src="http://vivien12.cafe24.com/promo/snow26-7-1.jpg"></a>
+					<a href="/product/list.html?cate_no=416" target="_self"><img src="http://vivien12.cafe24.com/promo/snow26-7-2.jpg"></a>
+				</div>
+				<div class="bgColor bgVi"></div>
+			</div>
+			<div id="section3">
+				<div class="img"><img src="http://vivien12.cafe24.com/promo/snow26-8.jpg"></div>
+				<div class="img"><a href="https://www.vivien-mall.com/member/join_member.html" target="_self"><img src="http://vivien12.cafe24.com/promo/snow26-bt.jpg"></a></div>
+			</div>
+			<div id="section4">
+				<div class="img"><img src="http://vivien12.cafe24.com/promo/snow26-9.jpg"></div>
+				<div class="swiper pre-swiper pre-swiper-container">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide"><a href="https://vivien-mall.com/product/detail.html?product_no=2887" target="_self"><img src="https://vivien12.cafe24.com/promo/snow26-9-1.jpg"></a></div>
+						<div class="swiper-slide"><a href="https://vivien-mall.com/product/detail.html?product_no=3612" target="_self"><img src="https://vivien12.cafe24.com/promo/snow26-9-2.jpg"></a></div>
+						<div class="swiper-slide"><a href="https://vivien-mall.com/product/detail.html?product_no=3547" target="_self"><img src="https://vivien12.cafe24.com/promo/snow26-9-3.jpg"></a></div>
+					</div>
+				</div> 
+				<div class="bgColor bgWh2"></div>
+			</div>
+			<div class="evenTguide img">
+				<img src='http://vivien12.cafe24.com/promo/snow26-plus.jpg' style="display: block; margin: 0px auto; text-align: center; cursor:pointer;"
+				name="close"
+				onClick="if(this.name == 'close'){ this.src='http://vivien12.cafe24.com/promo/snow26-minus.jpg';this.name='open' }
+				else{ this.src='http://vivien12.cafe24.com/promo/snow26-plus.jpg';this.name='close'; }" />
+			</div>
+		</div>
+		<script>
+		  $(document).ready(function(){
+				var _second = 1000; 
+				var _minute = _second * 60; 
+				var _hour = _minute * 60; 
+				var _day = _hour * 24;
+
+				var temp_target = $("#ptause_timer");
+				if(temp_target.length>0 && temp_target.data('enddate')){
+					temp_target.append('<span class="d"></span><span class="h"></span><span class="m"></span><span class="s"></span>');
+					
+					var timer;			
+					var end_date = temp_target.data('endDate').replace(/(\s+)|:/g,'-').split('-');
+					var temp_date = new Date(end_date[0],(end_date[1]-1),end_date[2],end_date[3],end_date[4]);
+					function showRemaining() { 
+						var now = new Date(); 
+						var distDt = temp_date.getTime() - now.getTime(); 
+
+						if (distDt < 0) { 
+							clearInterval(timer); 
+							temp_target.find('.d').html('0'); 
+							temp_target.find('.h').html('0'); 
+							temp_target.find('.m').html('0'); 
+							temp_target.find('.s').html('0'); 
+							return; 
+						} 
+						var days = Math.floor(distDt / _day); 
+						var hours = Math.floor((distDt % _day) / _hour); 
+						var minutes = Math.floor((distDt % _hour) / _minute); 
+						var seconds = Math.floor((distDt % _minute) / _second); 
+						temp_target.find('.d').html(days+''); 
+						temp_target.find('.h').html(hours+''); 
+						temp_target.find('.m').html(minutes+''); 
+						temp_target.find('.s').html(seconds+''); 
+						temp_target.removeClass('displaynone');
+					}
+					timer = setInterval(showRemaining, 1000);
+				}
+			});
+			
+
+
+		// 부드럽게 섹션 이동
+    	$('a[href^="#"]').click(function(e) {
+			var href = $(this).attr('href');
+			if (href.length > 1 && $(href).length > 0) {
+				e.preventDefault();
+				var pos = $(href).offset().top;
+				$("html, body").animate({ scrollTop: pos }, 600);
+			}
+		});	
+        
+
+		var swiper = new Swiper(".pajamaSlide", {
+			  pagination: {
+				el: ".swiper-pagination",
+			  },
+			  autoplay: {
+				delay: 2800,
+				disableOnInteraction: false,
+			  },
+			  loop: true,
+			});
+			
+			var swiper = new Swiper(".pre-swiper", {
+			//loop: true,//
+			autoplay: {
+				delay: 3300,
+				disableOnInteraction: false,
+			},
+			slidesPerView : '1.25',
+			spaceBetween: 26, // 간격 적당히
+			centeredSlides: true,
+			slidesOffsetBefore : 0,
+			slidesOffsetAfter : 10,
+		  });
+		</script>
+</html>

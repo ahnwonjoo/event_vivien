@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+<style>
+	*{box-sizing: border-box; margin: 0; padding: 0;}
+	div.container{
+		width: 800px;
+		padding: 0;
+		margin: auto;
+		position: relative;
+	}
+	div.container img{height: 100%; display: block;}
+	
+	div.partition{
+		display: flex;
+	}
+	
+	.ptause_timer_box { position:relative; }
+	.ptause_timer_box .img_box { line-height:0; }
+	.ptause_timer_box .time_box { position:absolute; left:0; width:100%; z-index:1; bottom:135px; padding:0 120px; display:flex; -webkit-box-pack:justify; -ms-flex-pack:justify; justify-content:space-between; -webkit-box-sizing:border-box; -moz-box-sizing:border-box; box-sizing:border-box;}
+	.ptause_timer_box .time_box span { display:block; width:0px; 
+		height:110px; 
+		font-size:95px; 
+		font-weight:bold; 
+		text-align:center; 
+		color: #FFF;
+		display:-webkit-box; 
+		display:-webkit-flex; 
+		display:-ms-flexbox; 
+		display:flex; 
+		-webkit-align-items:center; 
+		align-items:center; 
+		-webkit-justify-content:center; 
+		justify-content:center;
+		}
+	
+	.vivienSwiper {
+      width: 90%;
+      height: 90%;
+    }
+
+    .vivienSwiper > .swiper-wrapper > .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .vivienSwiper > .swiper-wrapper > .swiper-slide > img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+		
+	.pre-swiper {
+		width: 100%;
+		height: 100%;
+		background-color: #;
+		}
+		
+		.pre-swiper-container {padding-right: 6%; box-sizing: border-box;}
+		
+		.pre-swiper-container{
+		text-align: center;
+		font-size: 18px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	
+		
+		/* Center slide text vertically */
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: -webkit-flex;
+		display: flex;
+		-webkit-box-pack: center; 
+		-ms-flex-pack: center;
+		-webkit-justify-content: center; 
+		justify-content: center;
+		-webkit-box-align: center;
+		-ms-flex-align: center;
+		-webkit-align-items: center;
+		align-items: center;
+		}
+
+		.pre-swiper-container img {
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		}
+		
+		.pre-swiper-container {
+		width: 100%;
+		}
+	
+		
+	@media screen and (min-width: 600px) {
+	div.container {width: 800px; margin: 0 auto;}
+	.pre-swiper-slide {margin: 0 5px;}
+	.swiper-container {padding-right: 0%; }
+	.pre-swiper-container img {margin-left: 18px;}
+	}
+	
+	@media screen and (max-width: 600px) {
+	div.container, div.container img {width: 100%;}
+	div.partition>img {width: 50%;}
+	div.partition>a>img {width: 100%;}
+	
+	.ptause_timer_box .time_box { bottom:17.5vw; padding:0 15vw; }    
+	.ptause_timer_box .time_box span { width:0vw; height:13.5vw; font-size:11.2vw; }
+	
+	.pre-swiper-container {margin: 0px;}
+	.pre-swiper-container img {width: 102% !important; margin-left: 8px;}
+}
+</style>
+		<div class="container">
+			<!--<div class="ptause_timer_box"><div class="img_box"><img src="http://vivien12.cafe24.com/promo/2510-02.jpg"></div>
+				<div class="time_box" id="ptause_timer" data-enddate="2025-04-29 09:59:59"></div>
+			</div>-->
+			<div><img src="http://vivien12.cafe24.com/promo/2510-01.jpg"></div>
+			<div><img src="http://vivien12.cafe24.com/promo/2510-02.jpg"></div>
+			<div><img src="http://vivien12.cafe24.com/promo/2510-03.jpg"></div>
+            <div class="partition">
+				<a href="https://vivien-mall.com/product/detail.html?product_no=3034" target="_self"><img src="http://vivien12.cafe24.com/promo/2510-03-1.jpg"></a>
+				<a href="https://vivien-mall.com/product/detail.html?product_no=3034" target="_self"><img src="http://vivien12.cafe24.com/promo/2510-03-2.jpg"></a>
+			</div>
+			<div class="partition">
+				<a href="https://vivien-mall.com/product/detail.html?product_no=3449" target="_self"><img src="http://vivien12.cafe24.com/promo/2510-03-3.jpg"></a>
+				<a href="https://vivien-mall.com/product/detail.html?product_no=3452" target="_self"><img src="http://vivien12.cafe24.com/promo/2510-03-4.jpg"></a>
+			</div>
+			<div><img src="http://vivien12.cafe24.com/promo/relay-blank.jpg"></div>
+			<div><img src="http://vivien12.cafe24.com/promo/2510-05.jpg"></div>
+			<div class="swiper pre-swiper pre-swiper-container">
+			  <div class="swiper-wrapper">
+				  <div class="swiper-slide"><a href="https://vivien-mall.com/product/detail.html?product_no=2305" target="_self"><img src="https://vivien12.cafe24.com/promo/2510-05-1.jpg"></a></div>
+				  <div class="swiper-slide"><a href="https://vivien-mall.com/product/detail.html?product_no=1886" target="_self"><img src="https://vivien12.cafe24.com/promo/2510-05-2.jpg"></a></div>
+				  <div class="swiper-slide"><a href="https://vivien-mall.com/product/detail.html?product_no=3293" target="_self"><img src="https://vivien12.cafe24.com/promo/2510-05-3.jpg"></a></div>
+				  <div class="swiper-slide"><a href="https://vivien-mall.com/product/detail.html?product_no=1874" target="_self"><img src="https://vivien12.cafe24.com/promo/2510-05-4.jpg"></a></div>
+				</div>
+			</div>
+			<div><img src="http://vivien12.cafe24.com/promo/relay-blank.jpg"></div>
+			<div><img src="http://vivien12.cafe24.com/promo/2510-04.jpg"></div>
+            <div><img src="http://vivien12.cafe24.com/promo/2510-04-2.jpg"></div>
+            <div><img src="http://vivien12.cafe24.com/promo/2510-04-3.jpg"></div>
+			<div class="partition">
+				<img src="http://vivien12.cafe24.com/promo/2510-04-3-1.jpg">
+				<img src="http://vivien12.cafe24.com/promo/2510-04-3-2.jpg">
+			</div>
+			<div class="partition">
+				<img src="http://vivien12.cafe24.com/promo/2510-04-3-3.jpg">
+				<img src="http://vivien12.cafe24.com/promo/2510-04-3-4.jpg">
+			</div>
+			<div><img src="http://vivien12.cafe24.com/promo/2510-04-4.jpg"></div>        
+			<img src='http://vivien12.cafe24.com/promo/2510-plus.jpg' 
+			style="display: block; vertical-align: top; margin: 0px auto; text-align: center; cursor:pointer;"
+			name="close"
+			onClick="if(this.name == 'close')
+			{ this.src='http://vivien12.cafe24.com/promo/2510-minus.jpg';this.name='open' }
+			else{ this.src='http://vivien12.cafe24.com/promo/2510-plus.jpg';this.name='close'; }" />
+		</div>
+		<script>
+			    $(window).load(function(){
+					// 쿠폰URL 일괄처리
+					$("a.cpdBtn").each(function(){
+						var temp_href = $(this).attr('href');
+						if(temp_href.indexOf('?')==-1){
+							$(this).attr('href', temp_href+'?opener_url='+window.location.href);
+						}else{
+							$(this).attr('href', temp_href+'&opener_url='+window.location.href);
+						}
+					});
+				});
+			
+			$(document).ready(function(){
+				var _second = 1000; 
+				var _minute = _second * 60; 
+				var _hour = _minute * 60; 
+				var _day = _hour * 24;
+
+				var temp_target = $("#ptause_timer");
+				if(temp_target.length>0 && temp_target.data('enddate')){
+					temp_target.append('<span class="d"></span><span class="h"></span><span class="m"></span><span class="s"></span>');
+					
+					var timer;			
+					var end_date = temp_target.data('endDate').replace(/(\s+)|:/g,'-').split('-');
+					var temp_date = new Date(end_date[0],(end_date[1]-1),end_date[2],end_date[3],end_date[4]);
+					function showRemaining() { 
+						var now = new Date(); 
+						var distDt = temp_date.getTime() - now.getTime(); 
+
+						if (distDt < 0) { 
+							clearInterval(timer); 
+							temp_target.find('.d').html('0'); 
+							temp_target.find('.h').html('0'); 
+							temp_target.find('.m').html('0'); 
+							temp_target.find('.s').html('0'); 
+							return; 
+						} 
+						var days = Math.floor(distDt / _day); 
+						var hours = Math.floor((distDt % _day) / _hour); 
+						var minutes = Math.floor((distDt % _hour) / _minute); 
+						var seconds = Math.floor((distDt % _minute) / _second); 
+						temp_target.find('.d').html(days+''); 
+						temp_target.find('.h').html(hours+''); 
+						temp_target.find('.m').html(minutes+''); 
+						temp_target.find('.s').html(seconds+''); 
+						temp_target.removeClass('displaynone');
+					}
+					timer = setInterval(showRemaining, 1000);
+				}
+			});
+			
+			var swiper = new Swiper(".mySwiper", {
+			  effect : "fade",
+			  scrollbar: {
+				el: ".swiper-scrollbar",
+			  },
+			  speed : 1000,
+			  autoplay: {
+				delay: 2400,
+				disableOnInteraction: false,
+			  },
+			});
+			
+			var swiper = new Swiper(".pre-swiper", {
+			//loop: true,//
+			autoplay: {
+				delay: 3300,
+				disableOnInteraction: false,
+			},
+			slidesPerView : '1.25',
+			spaceBetween: 26, // 간격 적당히
+			centeredSlides: true,
+			slidesOffsetBefore : 0,
+			slidesOffsetAfter : 10,
+		  });
+		</script>
+</html>
+
+
+
+

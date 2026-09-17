@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+<style>
+	*{box-sizing: border-box; margin: 0; padding: 0;}
+	div.container{
+		width: 800px;
+		padding: 0;
+		margin: auto;
+		position: relative;
+	}
+	div.container img{height: 100%; display: block;}
+	
+	div.partition{
+		display: flex;
+	}
+	
+	div.tabMenu {
+    	display:block;
+        height:84px;
+    }
+	div.tabMenu .inner {
+		display: flex;
+	}
+	div.tabMenu .inner .tabButton{
+		display: inline-block;
+		width: 33.37%;
+		background-color: #075EFF;
+		border: none;
+		color: #689AF8;
+		text-align: center;
+		text-decoration: none;
+		font-size: 30px;
+		padding: 18px 0 22PX;
+		letter-spacing: -2px;
+        font-weight:500;
+        position:relative;
+		cursor : pointer;
+		font-weight: 300;
+	}
+	div.tabMenu .inner .tabButton.active{ 
+        background:#075EFF;
+        color:#FFF;
+		font-weight: 500;
+		/*text-shadow: 0 0 3px #D2A18B, 0 0 5px #FFF2C8;*/
+    }
+	div.tabMenu .inner .tabButton:before {
+    	content:'';
+        width:2px;
+        height:44px;
+        position:absolute;
+        top:18px;
+        left:-2px;
+        background:#689AF8;
+        display:block;
+        z-index:1;
+    }
+	div.tabMenu .inner .tabButton:first-child:before{display:none;}
+	/* div.tabMenu .inner .tabButton.active:before {display:none;}*/
+	/* div.tabMenu .inner .tabButton.active + .tabButton:before {display:none;}*/
+	
+	div.tabMenu.fixed .inner { position:fixed; top:70px; left:50%; width:800px; margin-left:-400px; z-index:10; }
+	
+	.bgColor {height: 88px; display: block;}
+	.bgSection2 {background-color: #D2E9FF;}
+	.bgSection3 {background-color: #FFF;}
+
+
+	.vivienSwiper {
+      width: 90%;
+      height: 90%;
+    }
+
+    .vivienSwiper .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .vivienSwiper .swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+		
+	@media screen and (min-width: 600px) {
+	div.container {width: 800px; margin: 0 auto;}
+	}
+	
+	@media screen and (max-width: 600px) {
+	div.container, div.container img {width: 100%;}
+	}
+</style>
+		<div class="container">
+			<div><img src="http://vivien12.cafe24.com/promo/cool26-1.jpg"></div>
+			<div class="tabMenu">
+				<div class="inner">
+					<button type="button" class="tabButton" data-target="section1">누드 브라</button>
+					<button type="button" class="tabButton" data-target="section2">에어미스트 브라</button>
+					<button type="button" class="tabButton" data-target="section3">2만원대 균일가전</button>
+				</div>
+			</div>
+			<div><img src="http://vivien12.cafe24.com/promo/cool26-2.jpg"></div>
+			<div><a href="https://vivien-mall.com/myshop/coupon/coupon.html" target="_self"><img src="http://vivien12.cafe24.com/promo/cool26-2-bt.jpg"></a></div>
+				<div><img src='http://vivien12.cafe24.com/promo/cool26-2-plus.jpg' 
+				style="display: block; vertical-align: top; margin: 0px auto; text-align: center; cursor:pointer;"
+				name="close"
+				onClick="if(this.name == 'close')
+				{ this.src='http://vivien12.cafe24.com/promo/cool26-2-minus.jpg';this.name='open' }
+				else{ this.src='http://vivien12.cafe24.com/promo/cool26-2-plus.jpg';this.name='close'; }" /></div>
+			<div class="section1">
+				<div><img src="http://vivien12.cafe24.com/promo/cool26-3.jpg"></div>
+				<div><img src="http://vivien12.cafe24.com/promo/cool26-4.jpg"></div>
+				<div><a href="https://vivien-mall.com/product/detail.html?product_no=3922" target="_self"><img src="http://vivien12.cafe24.com/promo/cool26-4-1.jpg"></a></div>
+				<div><a href="https://vivien-mall.com/product/detail.html?product_no=3923" target="_self"><img src="http://vivien12.cafe24.com/promo/cool26-4-2.jpg"></a></div>
+				<div class="bgColor bgSection2"></div>
+			</div>
+			<div class="section2">
+				<div><img src="http://vivien12.cafe24.com/promo/cool26-5.jpg"></div>
+				<div><img src="http://vivien12.cafe24.com/promo/cool26-6.jpg"></div>
+				<div><a href="https://vivien-mall.com/product/detail.html?product_no=3910" target="_self"><img src="http://vivien12.cafe24.com/promo/cool26-6-1.jpg"></a></div>
+				<div><a href="https://vivien-mall.com/product/detail.html?product_no=3919" target="_self"><img src="http://vivien12.cafe24.com/promo/cool26-6-2.jpg"></a></div>
+				<div><a href="https://vivien-mall.com/product/detail.html?product_no=3910" target="_self"><img src="http://vivien12.cafe24.com/promo/cool26-6-3.jpg"></a></div>
+				<div><a href="https://vivien-mall.com/product/detail.html?product_no=3918" target="_self"><img src="http://vivien12.cafe24.com/promo/cool26-6-4.jpg"></a></div>
+				<div><a href="https://vivien-mall.com/product/detail.html?product_no=3917" target="_self"><img src="http://vivien12.cafe24.com/promo/cool26-6-5.jpg"></a></div>
+				<div><a href="https://vivien-mall.com/product/detail.html?product_no=3920" target="_self"><img src="http://vivien12.cafe24.com/promo/cool26-6-6.jpg"></a></div>
+				<div><a href="https://vivien-mall.com/product/detail.html?product_no=3921" target="_self"><img src="http://vivien12.cafe24.com/promo/cool26-6-7.jpg"></a></div>
+				<div class="bgColor bgSection2"></div>
+			</div>
+			<div class="section3" id="newsection">
+				<div><img src="http://vivien12.cafe24.com/promo/cool26-7.jpg"></div>
+				<div class="partition">
+					<a href="https://vivien-mall.com/product/detail.html?product_no=3099" target="_self"><img src="http://vivien12.cafe24.com/promo/cool26-7-1.jpg"></a>
+					<a href="https://vivien-mall.com/product/detail.html?product_no=3100" target="_self"><img src="http://vivien12.cafe24.com/promo/cool26-7-2.jpg"></a>
+				</div>
+				<div class="partition">
+					<a href="https://vivien-mall.com/product/detail.html?product_no=3120" target="_self"><img src="http://vivien12.cafe24.com/promo/cool26-7-3.jpg"></a>
+					<a href="https://vivien-mall.com/product/detail.html?product_no=3119" target="_self"><img src="http://vivien12.cafe24.com/promo/cool26-7-4.jpg"></a>
+				</div>
+				<div class="bgColor bgSection3"></div>
+			</div>
+			<div class="guide img">
+				<img src='http://vivien12.cafe24.com/promo/cool26-plus.jpg' 
+				style="display: block; vertical-align: top; margin: 0px auto; text-align: center; cursor:pointer;"
+				name="close"
+				onClick="if(this.name == 'close')
+				{ this.src='http://vivien12.cafe24.com/promo/cool26-minus.jpg';this.name='open' }
+				else{ this.src='http://vivien12.cafe24.com/promo/cool26-plus.jpg';this.name='close'; }" />
+			</div>
+		</div>
+		<script>
+			$(window).scroll(function (e) {
+    var tabMenu = $(".tabMenu").offset().top-70;
+ 	var guide_line = $(".guide").offset().top-167;
+	var PJ_scroll = $(window).scrollTop();
+
+	if(PJ_scroll < tabMenu) {
+		$('.tabMenu').removeClass('fixed');
+	} else if(PJ_scroll > guide_line) {
+		$('.tabMenu').removeClass('fixed');
+	} else {
+		$('.tabMenu').addClass('fixed');
+	}
+    
+    // 핵심 수정 부분: 현재 어느 섹션에도 속하지 않았는지 확인하기 위한 변수
+    var isAnySectionActive = false; 
+
+    $(".container > div[class^=section]").each(function(){
+        var sectionTop = $(this).offset().top - 149;
+        var sectionBottom = $(this).offset().top + $(this).height() - 149;
+
+        if(PJ_scroll > sectionTop && PJ_scroll <= sectionBottom){
+            isAnySectionActive = true; // 현재 섹션 영역 안에 있음!
+            if(!$(".tabMenu .tabButton[data-target='"+$(this).attr('class')+"']").hasClass('active')){
+                $(".tabMenu .tabButton").removeClass('active');
+                $(".tabMenu .tabButton[data-target='"+$(this).attr('class')+"']").addClass('active');
+            }
+        }
+    });
+
+    // 모든 섹션 루프를 돌았는데 active된 섹션이 없다면 (위쪽 빈 공간 등) active 제거
+    if(!isAnySectionActive) {
+        $(".tabMenu .tabButton").removeClass('active');
+    }
+});
+
+$(".tabButton").click(function(){
+    var target_scroll = $("."+$(this).attr('data-target')).offset().top-148;
+$('body,html').animate({scrollTop:target_scroll},400);
+});
+		
+			var swiper = new Swiper(".mySwiper", {
+			  effect : "fade",
+			  scrollbar: {
+				el: ".swiper-scrollbar",
+			  },
+			  speed : 1000,
+			  autoplay: {
+				delay: 2400,
+				disableOnInteraction: false,
+			  },
+			});
+		</script>
+</html>
+
+
+
+

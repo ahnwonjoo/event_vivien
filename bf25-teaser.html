@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+<style>
+	div.container{
+		width: 800px;
+		padding: 0;
+		margin: auto;
+		position: relative;
+	}
+	div.container img{height: 100%; display: block;}
+
+	div.partition{
+		display: flex;
+	}
+    
+	@media screen and (min-width: 600px) {
+		div.container {width: 800px; margin: 0 auto;}
+		.unterFloating {display: none;}
+	}
+
+	@media screen and (max-width: 600px) {
+		div.container, div.container img {width: 100%;}
+	}
+
+	.img { display:block; line-height:0; }
+    
+	.displaynone { display: none !important; } /*24시간 이상일 때는 좌측 텍스트 숨기기위해 꼭 필요*/
+	.ptause_timer_box .timer span  { font-family:'Noto Sans KR' !important;}
+
+	@import url('//fonts.googleapis.com/earlyaccess/notosanskr.css');
+	@import url('//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff');
+	@import url('//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff2');
+
+	.ptause_timer_box { position:relative; }
+	.ptause_timer_box .img_box { line-height:0; }
+	.ptause_timer_box .time_box { position:absolute; left:0; width:100%; z-index:1; bottom:135px; padding:0 120px; display:flex; -webkit-box-pack:justify; -ms-flex-pack:justify; justify-content:space-between; -webkit-box-sizing:border-box; -moz-box-sizing:border-box; box-sizing:border-box;}
+	.ptause_timer_box .time_box span { display:block; width:0px; 
+		height:110px; 
+		font-size:95px; 
+		font-weight:bold; 
+		text-align:center; 
+		color: #FFF;
+		display:-webkit-box; 
+		display:-webkit-flex; 
+		display:-ms-flexbox; 
+		display:flex; 
+		-webkit-align-items:center; 
+		align-items:center; 
+		-webkit-justify-content:center; 
+		justify-content:center;
+		}
+	
+    
+	
+	@media screen and (min-width: 600px) {
+	div.container {width: 800px; margin: 0 auto;}
+	.unterFloating {display: none;}
+	}
+
+	@media screen and (max-width: 600px) {
+		div.container, div.container img {width: 100%;}
+		.ptause_timer_box .time_box { bottom:17.5vw; padding:0 15vw; }    
+	.ptause_timer_box .time_box span { width:0vw; height:13.5vw; font-size:11.2vw; }
+	}
+	
+
+</style>
+		<div class="container">
+	        <div class="img"><img src="http://vivien12.cafe24.com/promo/bf25-t-01.jpg"></div>
+			<div class="ptause_timer_box">
+				<div class="img_box"><img src="http://vivien12.cafe24.com/promo/bf25-t-02.jpg"></div>
+				<div class="time_box" id="ptause_timer" data-enddate="2025-11-06 09:39:59"></div>
+			</div>
+			<div class="img">
+				<a href="http://vivien-mall.com/exec/front/newcoupon/IssueDownload?coupon_no=6083438355200000711&opener_url=/product/promo25/bf25-t.html?cate_no=257"
+				class="cpdBtn" target="_self">
+					<img src="http://vivien12.cafe24.com/promo/bf25-t-03.jpg">
+				</a>
+			</div>
+			<div class="img"><img src="http://vivien12.cafe24.com/promo/bf25-t-04.jpg"></div>
+			<div class="partition">
+					<a href="https://vivien-mall.com/product/detail.html?product_no=3034" target="_self"><img src="http://vivien12.cafe24.com/promo/bf25-t-04-1.jpg" alt="119핑크"></a>
+					<a href="https://vivien-mall.com/product/detail.html?product_no=3574" target="_self"><img src="http://vivien12.cafe24.com/promo/bf25-t-04-2.jpg"></a>
+				</div>
+				<div class="partition">
+					<a href="https://vivien-mall.com/product/detail.html?product_no=3416" target="_self"><img src="http://vivien12.cafe24.com/promo/bf25-t-04-3.jpg"></a>
+					<a href="https://vivien-mall.com/product/detail.html?product_no=3377" target="_self"><img src="http://vivien12.cafe24.com/promo/bf25-t-04-4.jpg"></a>
+				</div> 
+				<div class="partition">
+					<a href="https://vivien-mall.com/product/detail.html?product_no=2799" target="_self"><img src="http://vivien12.cafe24.com/promo/bf25-t-04-5.jpg"></a>
+					<a href="https://vivien-mall.com/product/detail.html?product_no=3487" target="_self"><img src="http://vivien12.cafe24.com/promo/bf25-t-04-6.jpg"></a>
+				</div>
+				<a href="https://vivien-mall.com/product/list.html?cate_no=257" target="_self"><img src="http://vivien12.cafe24.com/promo/bf25-t-04-bt.jpg"></a>
+			
+			<div class="img"><img src="http://vivien12.cafe24.com/promo/bf25-t-05.jpg"></div>
+			<div class="evenTguide img">
+			<img src='http://vivien12.cafe24.com/promo/bf25-t-plus.jpg' style="display: block; margin: 0px auto; text-align: center; cursor:pointer;"
+			name="close"
+			onClick="if(this.name == 'close'){ this.src='http://vivien12.cafe24.com/promo/bf25-t-minus.jpg';this.name='open' }
+			else{ this.src='http://vivien12.cafe24.com/promo/bf25-t-plus.jpg';this.name='close'; }" />
+			</div>
+		</div>
+		<script>
+		  $(document).ready(function(){
+				var _second = 1000; 
+				var _minute = _second * 60; 
+				var _hour = _minute * 60; 
+				var _day = _hour * 24;
+
+				var temp_target = $("#ptause_timer");
+				if(temp_target.length>0 && temp_target.data('enddate')){
+					temp_target.append('<span class="d"></span><span class="h"></span><span class="m"></span><span class="s"></span>');
+					
+					var timer;			
+					var end_date = temp_target.data('endDate').replace(/(\s+)|:/g,'-').split('-');
+					var temp_date = new Date(end_date[0],(end_date[1]-1),end_date[2],end_date[3],end_date[4]);
+					function showRemaining() { 
+						var now = new Date(); 
+						var distDt = temp_date.getTime() - now.getTime(); 
+
+						if (distDt < 0) { 
+							clearInterval(timer); 
+							temp_target.find('.d').html('0'); 
+							temp_target.find('.h').html('0'); 
+							temp_target.find('.m').html('0'); 
+							temp_target.find('.s').html('0'); 
+							return; 
+						} 
+						var days = Math.floor(distDt / _day); 
+						var hours = Math.floor((distDt % _day) / _hour); 
+						var minutes = Math.floor((distDt % _hour) / _minute); 
+						var seconds = Math.floor((distDt % _minute) / _second); 
+						temp_target.find('.d').html(days+''); 
+						temp_target.find('.h').html(hours+''); 
+						temp_target.find('.m').html(minutes+''); 
+						temp_target.find('.s').html(seconds+''); 
+						temp_target.removeClass('displaynone');
+					}
+					timer = setInterval(showRemaining, 1000);
+				}
+			});
+			
+
+
+		// 부드럽게 섹션 이동
+    	$('a[href^="#"]').click(function(e) {
+			var href = $(this).attr('href');
+			if (href.length > 1 && $(href).length > 0) {
+				e.preventDefault();
+				var pos = $(href).offset().top;
+				$("html, body").animate({ scrollTop: pos }, 600);
+			}
+		});	
+        
+
+		
+		</script>
+</html>
