@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+<style>
+   *{box-sizing: border-box; margin: 0; padding: 0;}
+	div.container{
+		width: 800px;
+		padding: 0;
+		margin: auto;
+		position: relative;
+        line-height:0;
+	}
+	div.container img{height: 100%; display: block;}
+
+	div.partition{
+		display: flex;
+	}
+
+	div.tabMenu {
+    	display:block;
+        height:125px;
+    }
+	div.tabMenu .inner {
+		display: flex;
+	}
+	div.tabMenu .inner .tabButton{
+		display: inline-block;
+		width: 25%;
+		background-color: #000;
+		border: none;
+		color: #c6c6c6;
+		text-align: center;
+		text-decoration: none;
+		font-size: 36px;
+		padding: 40px 0;
+		letter-spacing: -2px;
+        font-weight:500;
+        position:relative;
+	}
+	div.tabMenu .inner .tabButton.active{ 
+        background:#FF3DA8;
+        color:#fff;
+    }
+	div.tabMenu .inner .tabButton:before {
+    	content:'';
+        width:2px;
+        height:90px;
+        position:absolute;
+        top:17px;
+        left:-2px;
+        background:#6c6c6c;
+        display:block;
+        z-index:1;
+    }
+    div.tabMenu .inner .tabButton:first-child:before{
+        display:none;
+    }
+	div.tabMenu .inner .tabButton.active:before {
+    	display:none;
+    }
+	div.tabMenu .inner .tabButton.active + .tabButton:before {
+        display:none;
+    }
+    
+	div.tabMenu.fixed .inner { position:fixed; top:70px; left:50%; width:800px; margin-left:-400px; z-index:10; }
+
+    .event_timer_box { clear:both; display:block; background:#FFEAF4; height:70px; }
+    .event_timer_box .timer_bar { display:block; position:relative; width:calc(100% - 76px); height:4px; margin:0 auto; background:#fff; }
+    .event_timer_box .timer_bar span { display:block; position:absolute; top:0; left:0; width:10%; height:100%; background:#FF4E9C; }
+    .event_timer_box .timer_txt { display:block; position:relative; width:calc(100% - 76px); margin:7px auto 0; font-family:'SUIT'; font-weight:700; font-size:28px; line-height:43px; color:#FF4E9C; }
+    
+	@media screen and (min-width: 600px) {
+		div.container {width: 800px; margin: 0 auto;}
+		.unterFloating {display: none;}
+	}
+
+	@media screen and (max-width: 600px) {
+		div.container, div.container img {width: 100%;}
+		
+		div.tabMenu .tabButton{
+			font-size: 5vw;
+			padding: 30px 0;
+		}
+		.unterFloating {
+		position: fixed;
+		bottom: 10px;
+		z-index: 1111;
+		text-align: center;
+		width: 100%;
+		cursor: pointer;
+		opacity: 90%;
+		
+	}
+		.unterFloating img {width: 100%; vertical-align:bottom;}
+		
+	}
+
+</style>
+		<div class="container">
+			<div class="img"><img src="http://vivien12.cafe24.com/promo/bf24-1.jpg"></div>
+			<div class="tabMenu">
+				<div class="inner">
+					<button type="button" class="tabButton active" data-target="section1">럭키 쿠폰</button>
+					<button type="button" class="tabButton" data-target="section2">특가 상품</button>
+					<button type="button" class="tabButton" data-target="section3">타임딜</button>
+					<button type="button" class="tabButton" data-target="section4">득템찬스</button>
+				</div>
+			</div>
+			<div class="section1"><a href="http://vivien-mall.com/exec/front/newcoupon/IssueDownload?coupon_no=6080388484700000440&opener_url=/product/promo24/bf24-long.html?cate_no=651" class=”cpdBtn” target="_self"><img src="http://vivien12.cafe24.com/promo/bf24-2.jpg"></a></div>
+			<div class="section2">
+			<div class="img"><img src="http://vivien12.cafe24.com/promo/bf24-3.jpg"></div>
+				<div class="partition">
+					<a href="https://vivien-mall.com/product/detail.html?product_no=2542" target="_self"><img src="http://vivien12.cafe24.com/promo/bf24-3-1-2phase.jpg"></a>
+					<a href="https://vivien-mall.com/product/detail.html?product_no=2902" target="_self"><img src="http://vivien12.cafe24.com/promo/bf24-3-2.jpg"></a>
+				</div>
+				<div class="partition">
+					<a href="https://vivien-mall.com/product/detail.html?product_no=2879" target="_self"><img src="http://vivien12.cafe24.com/promo/bf24-3-3.jpg"></a>
+					<a href="https://vivien-mall.com/product/detail.html?product_no=2985" target="_self"><img src="http://vivien12.cafe24.com/promo/bf24-3-4.jpg"></a>
+				</div> 
+				<div class="partition">
+					<a href="https://vivien-mall.com/product/detail.html?product_no=3280" target="_self"><img src="http://vivien12.cafe24.com/promo/bf24-3-5.jpg"></a>
+					<a href="https://vivien-mall.com/product/detail.html?product_no=3284" target="_self"><img src="http://vivien12.cafe24.com/promo/bf24-3-6.jpg"></a>
+				</div>
+				<a href="https://www.vivien-mall.com/product/list.html?cate_no=651" target="_self"><img src="http://vivien12.cafe24.com/promo/bf24-3-bt.jpg"></a>
+			</div>
+			<div class="section3">
+				<div class="img"><img src="http://vivien12.cafe24.com/promo/bf24-4.jpg"></div>
+				<div class="event_timer_box" data-start="2024-11-10 10:00:00" data-end="2024-11-13 09:59:59">
+                    <!--@js(/_wp/js/event_timer.js)-->
+					<div class="timer_bar"><span></span></div>
+					<div class="timer_txt"></div>
+				</div>
+				<a href="https://vivien-mall.com/product/detail.html?product_no=3283"><img src="http://vivien12.cafe24.com/promo/bf24-4-1-2phase.jpg"></a>
+				<a href="https://vivien-mall.com/product/detail.html?product_no=2811"><img src="http://vivien12.cafe24.com/promo/bf24-4-2.jpg"></a>
+				<a href="https://www.vivien-mall.com/product/list.html?cate_no=661"><img src="http://vivien12.cafe24.com/promo/bf24-4-bt.jpg"></a>
+			</div>
+			<div class="section4">
+				<div class="img"><img src="http://vivien12.cafe24.com/promo/bf24-5.jpg"></div>
+				<div class="partition">
+					<a href="https://vivien-mall.com/product/detail.html?product_no=2955" target="_self"><img src="http://vivien12.cafe24.com/promo/bf24-5-1.jpg"></a>
+					<a href="https://vivien-mall.com/product/detail.html?product_no=3146" target="_self"><img src="http://vivien12.cafe24.com/promo/bf24-5-2.jpg"></a>
+					<a href="https://vivien-mall.com/product/detail.html?product_no=3151" target="_self"><img src="http://vivien12.cafe24.com/promo/bf24-5-3.jpg"></a>
+				</div>
+				<div class="partition">
+					<a href="https://vivien-mall.com/product/detail.html?product_no=2956" target="_self"><img src="http://vivien12.cafe24.com/promo/bf24-5-4.jpg"></a>
+					<a href="https://vivien-mall.com/product/detail.html?product_no=3148" target="_self"><img src="http://vivien12.cafe24.com/promo/bf24-5-5.jpg"></a>
+					<a href="https://vivien-mall.com/product/detail.html?product_no=3152" target="_self"><img src="http://vivien12.cafe24.com/promo/bf24-5-6.jpg"></a>
+				</div>
+				<a href="https://www.vivien-mall.com/product/list.html?cate_no=662"><img src="http://vivien12.cafe24.com/promo/bf24-5-bt.jpg"></a>
+				<div class="img"><img src="http://vivien12.cafe24.com/promo/bf24-6.jpg"></div>
+				<div class="partition">
+					<a href="https://vivien-mall.com/product/detail.html?product_no=3293" target="_self"><img src="http://vivien12.cafe24.com/promo/bf24-6-1-2phase.jpg"></a>
+					<a href="https://vivien-mall.com/product/detail.html?product_no=2834" target="_self"><img src="http://vivien12.cafe24.com/promo/bf24-6-2.jpg"></a>
+					<a href="https://vivien-mall.com/product/detail.html?product_no=3288" target="_self"><img src="http://vivien12.cafe24.com/promo/bf24-6-3.jpg"></a>
+				</div>
+				<div class="partition">
+					<a href="https://vivien-mall.com/product/detail.html?product_no=1658" target="_self"><img src="http://vivien12.cafe24.com/promo/bf24-6-4.jpg"></a>
+					<a href="https://vivien-mall.com/product/detail.html?product_no=2793" target="_self"><img src="http://vivien12.cafe24.com/promo/bf24-6-5.jpg"></a>
+					<a href="https://vivien-mall.com/product/detail.html?product_no=2810" target="_self"><img src="http://vivien12.cafe24.com/promo/bf24-6-6.jpg"></a>
+				</div>
+				<a href="https://www.vivien-mall.com/product/list.html?cate_no=673"><img src="http://vivien12.cafe24.com/promo/bf24-6-bt.jpg"></a>
+			</div>
+			<div class="guide img"><img src='http://vivien12.cafe24.com/promo/bf24-von.jpg' style="display: block; vertical-align: top; margin: 0px auto; text-align: center; cursor:pointer;"
+			name="close"
+			onClick="if(this.name == 'close'){ this.src='http://vivien12.cafe24.com/promo/bf24-nach.jpg';this.name='open' }else{ this.src='http://vivien12.cafe24.com/promo/bf24-von.jpg';this.name='close'; }" /></div>
+			<!--<div class="unterFloating" id="unterPop">
+				<a href="https://vivien-mall.com/product/promo24/bf24-short.html?cate_no=651" target="_self"><img src="http://vivien12.cafe24.com/promo/bf24-float-bt.png"></a>
+			</div>-->
+		</div>
+<script>
+  $(window).scroll(function (e) {
+    var tabMenu = $(".tabMenu").offset().top-70;
+ 	var guide_line = $(".guide").offset().top-167;
+	var PJ_scroll = $(window).scrollTop();
+
+	if(PJ_scroll < tabMenu) {
+		$('.tabMenu').removeClass('fixed');
+	} else if(PJ_scroll > guide_line) {
+		$('.tabMenu').removeClass('fixed');
+	} else {
+		$('.tabMenu').addClass('fixed');
+	}
+    
+    $(".container > div[class^=section]").each(function(){
+        if((PJ_scroll > $(this).offset().top-195) && (PJ_scroll <= $(this).offset().top+$(this).height())){
+            if(!$(".tabMenu .tabButton[data-target='"+$(this).attr('class')+"']").hasClass('active')){
+                $(".tabMenu .tabButton").removeClass('active');
+                $(".tabMenu .tabButton[data-target='"+$(this).attr('class')+"']").addClass('active');
+            }
+        }
+    });
+});
+
+$(".tabButton").click(function(){
+    var target_scroll = $("."+$(this).attr('data-target')).offset().top-194;
+$('body,html').animate({scrollTop:target_scroll},400);
+});
+
+$(window).scroll(function () {
+				var scrT = $(window).scrollTop();
+				console.log(scrT); //스크롤 값 확인용
+				 if(scrT == $(document).height() - $(window).height()){
+					//스크롤이 끝에 도달했을때 실행될 이벤트
+					$('.unterFloating').hide();
+				  } else {
+					//아닐때 이벤트
+					$('.unterFloating').show();
+				  }
+			});
+
+
+		 $(document).ready(function(){
+            var _second = 1000; 
+            var _minute = _second * 60; 
+            var _hour = _minute * 60; 
+            var _day = _hour * 24;
+
+            var temp_target = $("#vivi_timer");
+            if(temp_target.length>0 && temp_target.data('enddate')){
+                temp_target.append('<span class="d"></span><span class="h"></span><span class="m"></span><span class="s"></span><span class="ss"></span>');
+
+                var timer;			
+                var end_date = temp_target.data('endDate').replace(/(\s+)|:/g,'-').split('-');
+                var temp_date = new Date(end_date[0],(end_date[1]-1),end_date[2],end_date[3],end_date[4]);
+                function showRemaining() { 
+                    var now = new Date(); 
+                    var distDt = temp_date.getTime() - now.getTime(); 
+
+                    if (distDt < 0) { 
+                        clearInterval(timer);
+                        temp_target.parent().addClass('ended');
+                        temp_target.find('.d').html('00'); 
+                        temp_target.find('.h').html('00'); 
+                        temp_target.find('.m').html('00'); 
+                        temp_target.find('.s').html('00'); 
+                        return; 
+                    } 
+                    var days = Math.floor(distDt / _day); 
+                    var hours = Math.floor((distDt % _day) / _hour); 
+                    var minutes = Math.floor((distDt % _hour) / _minute); 
+                    var seconds = Math.floor((distDt % _minute) / _second);
+            		var microsec = Math.floor((distDt % _second) / 10);
+                    if (days<10) days = '0'+days;
+                    if (hours<10) hours = '0'+hours;
+                    if (minutes<10) minutes = '0'+minutes;
+                    if (seconds<10) seconds = '0'+seconds;
+                    //if (microsec<10) microsec = '00'+microsec; else if(microsec<100) microsec = '0'+microsec;
+                    if (microsec<10) microsec = '0'+microsec; 
+                    temp_target.find('.d').html(days); 
+                    temp_target.find('.h').html(hours); 
+                    temp_target.find('.m').html(minutes); 
+                    temp_target.find('.s').html(seconds);
+            		temp_target.find('.ss').html(microsec); 
+                }
+                timer = setInterval(showRemaining, 10);
+            }
+        });
+</script>
+</html>
