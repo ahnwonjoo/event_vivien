@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+<style>
+	*{box-sizing: border-box; margin: 0; padding: 0;}
+	div.container{
+		width: 800px;
+		padding: 0;
+		margin: auto;
+		position: relative;
+	}
+	div.container img{height: 100%; display: block;}
+
+	div.partition{
+		display: flex;
+	}
+	/* 최상단 타이머 */
+	center img {display: block;}
+	center{
+		width: 800px;
+		padding: 0;
+		margin: auto;
+		position: relative;
+	}
+	#title-area{
+		width: 800px;
+		margin: 56px auto 40px;
+	}
+	#bgImg{
+		display: block;
+	}
+	#bgImg img{
+		max-width: 100%;
+		vertical-align: middle;
+		border: 0;
+	}
+	/* https://myhappyman.tistory.com/163 참고 */
+	#eventTimer{
+		position: absolute;
+		top: 47.4%;
+		left: 70.4%;
+		transform: translate(-50%, -50%);
+		font-size: 64px;
+		color: #233240;
+		width: 1040px;
+		font-weight: 600;
+	}
+	#eventTimer span{
+		width: 12.7%;
+		display: inline-block;
+		text-align: center;
+	}
+    
+	/* 타이머 영역 */
+	.ptause_timer_box { position:relative; }
+	.ptause_timer_box .img_box { line-height:0; }
+	.ptause_timer_box .img_box img { max-width:100%; }
+	.ptause_timer_box .time_box { position:absolute; right:3%; width:50%; z-index: 5; bottom: 12.4%; padding:0 20px; display:flex; }
+	.ptause_timer_box .time_box span { font-family: 'suit'; display:block; height:96px; font-size:34px; color: #FF72C9; font-weight:bold; display:-webkit-box; display:-webkit-flex; display:-ms-flexbox; display:flex; -webkit-align-items:center; align-items:center; padding:6px;}
+	@media all and (max-width:600px) {
+		.ptause_timer_box .time_box { bottom:7vw; padding:0 4.2vw; }    
+		.ptause_timer_box .time_box span { width:20.7vw; height:11.5vw; font-size:5.2vw; }
+	}
+
+	/* 스와이퍼 영역 */
+	.pajamaSlide {width:100%;}
+}
+		
+	@media screen and (min-width: 600px) {
+	div.container {width: 800px; margin: 0 auto;}
+	}
+
+	@media screen and (max-width: 600px) {
+	div.container, div.container img {width: 100%;}
+	.detail-swiper {width: 92%; bottom: -170px; right: 0;}
+	.bra-art {margin-top: 160px;}
+	.swiper-pagination {position: absolute; bottom: 16px !important;}
+	.swiper-pagination-bullet {width: 9px; height: 9px;}
+	}
+</style>
+<center><div id="title-area timerImg">
+				<div id="bgImg">
+					<img src="http://vivien12.cafe24.com/promo/67th-time-bn.jpg"></div><div id="eventTimer"><span>00</span><span>00</span><span>00</span></div></div></center>
+<div class="container"><img src="http://vivien12.cafe24.com/promo/67thparty-01.jpg"><a href="https://www.vivien-mall.com/product/list.html?cate_no=472" target="_self"><img src="http://vivien12.cafe24.com/promo/67thparty-02.jpg"></a>
+			<a href="https://vivien-mall.com/exec/front/newcoupon/IssueDownload?coupon_no=6079617872100000354&opener_url=/product/promo24/67th.html?cate_no=471" target="_self"><img src="http://vivien12.cafe24.com/promo/67thparty-03.jpg"></a>
+			<div class="ptause_timer_box">
+                <div class="img_box"><img src="http://vivien12.cafe24.com/promo/67thparty-04.jpg"></div>
+                <div class="time_box" id="ptause_timer" data-enddate="2024-08-19 08:59:59"></div>
+            </div>
+			<div class="partition">
+				<a href="https://vivien-mall.com/product/detail.html?product_no=2555" target="_self"><img src="http://vivien12.cafe24.com/promo/67thparty-04-3th-01.jpg"></a>
+				<a href="https://vivien-mall.com/product/detail.html?product_no=2455" target="_self"><img src="http://vivien12.cafe24.com/promo/67thparty-04-3th-02.jpg"></a>
+			</div>
+			<div class="partition">
+				<a href="https://vivien-mall.com/product/detail.html?product_no=2954" target="_self"><img src="http://vivien12.cafe24.com/promo/67thparty-04-3th-03.jpg"></a>
+				<a href="https://vivien-mall.com/product/detail.html?product_no=2953" target="_self"><img src="http://vivien12.cafe24.com/promo/67thparty-04-3th-04.jpg"></a>
+			</div>
+			<a href="https://www.vivien-mall.com/product/list.html?cate_no=473" target="_self"><img src="http://vivien12.cafe24.com/promo/67thparty-04-bt.jpg"></a>
+			<img src="http://vivien12.cafe24.com/promo/67thparty-05.jpg"><!-- Swiper --><!--<div class="swiper pajamaSlide"><div class="swiper-wrapper"><div class="swiper-slide swiper-pajamaSlide"><img src="http://vivien12.cafe24.com/promo/67neu/67thparty-05-a.jpg" alt=""></div>
+				  <div class="swiper-slide swiper-pajamaSlide"><img src="http://vivien12.cafe24.com/promo/67neu/67thparty-05-b.jpg" alt=""></div>
+				  <div class="swiper-slide swiper-pajamaSlide"><img src="http://vivien12.cafe24.com/promo/67neu/67thparty-05-c.jpg" alt=""></div>
+				  <div class="swiper-slide swiper-pajamaSlide"><img src="http://vivien12.cafe24.com/promo/67neu/67thparty-05-d.jpg" alt=""></div>
+				</div>
+				<div class="swiper-pagination"></div>
+			  </div>
+			<a href="https://vivien-mall.com/product/detail.html?product_no=3099" target="_self"><img src="http://vivien12.cafe24.com/promo/67neu/67thparty-05-01.jpg"></a>
+			<a href="https://vivien-mall.com/product/detail.html?product_no=3100" target="_self"><img src="http://vivien12.cafe24.com/promo/67neu/67thparty-05-02.jpg"></a>
+			<a href="https://vivien-mall.com/product/detail.html?product_no=3119" target="_self"><img src="http://vivien12.cafe24.com/promo/67neu/67thparty-05-03.jpg"></a>
+			<a href="https://vivien-mall.com/product/detail.html?product_no=3120" target="_self"><img src="http://vivien12.cafe24.com/promo/67neu/67thparty-05-04.jpg"></a>
+			<a href="https://www.vivien-mall.com/product/promo24/summernew.html?cate_no=559" target="_self"><img src="http://vivien12.cafe24.com/promo/67thparty-05-bt.jpg"></a
+			<img src="http://vivien12.cafe24.com/promo/67thparty-06.jpg" style="margin-top: 40px;">
+			<a href="https://www.vivien-mall.com/product/list.html?cate_no=484" target="_self"><img src="http://vivien12.cafe24.com/promo/67thparty-06-01.jpg"></a>
+			<a href="https://www.vivien-mall.com/product/list.html?cate_no=485" target="_self"><img src="http://vivien12.cafe24.com/promo/67thparty-06-02.jpg"></a>
+			<a href="https://www.vivien-mall.com/product/list.html?cate_no=486" target="_self"><img src="http://vivien12.cafe24.com/promo/67thparty-06-03.jpg"></a>
+			<a href="https://www.vivien-mall.com/product/list.html?cate_no=474" target="_self"><img src="http://vivien12.cafe24.com/promo/67thparty-06-bt.jpg"></a>
+			<!--토글--><!--
+			<img src='http://vivien12.cafe24.com/promo/67thparty-von.jpg' style="display: block; vertical-align: top; margin: 0px auto; text-align: center; cursor:pointer;"
+			name="close"
+			onClick="if(this.name == 'close'){ this.src='http://vivien12.cafe24.com/promo/67thparty-nach.jpg';this.name='open' }else{ this.src='http://vivien12.cafe24.com/promo/67thparty-von.jpg';this.name='close'; }" />
+			<!--토글 끝--><!--
+			
+			
+		</div>
+		
+		<script>
+            setInterval(function(){
+			var now = new Date(),
+				end = new Date('2024-08-19 08:59:59'),
+				nt = now.getTime(),
+				et = end.getTime(),
+				hour = "00",
+				min = "00",
+				sec = "00",
+				timer = document.getElementById("eventTimer");
+
+			if(nt < et){
+				sec = parseInt(et - nt) / 1000;
+				hour = parseInt(sec / 60 / 60);
+				sec = (sec - (hour * 60 * 60));
+				min = parseInt(sec / 60);
+				sec = parseInt(sec - (min * 60));
+
+				if(hour < 10) hour = "0" + hour;
+				if(min < 10) min = "0" + min;
+				if(sec < 10) sec = "0" + sec;
+			}
+
+			timer.children[0].innerHTML = hour;
+			timer.children[1].innerHTML = min;
+			timer.children[2].innerHTML = sec;
+		}, 1000);
+            
+$(document).ready(function(){
+    var _second = 1000; 
+    var _minute = _second * 60; 
+    var _hour = _minute * 60; 
+    var _day = _hour * 24;
+
+    var temp_target = $("#ptause_timer");
+    if(temp_target.length>0 && temp_target.data('enddate')){
+        temp_target.append('<span class="d"></span><span class="h"></span><span class="m"></span><span class="s"></span>');
+        
+        var timer;			
+        var end_date = temp_target.data('endDate').replace(/(\s+)|:/g,'-').split('-');
+        var temp_date = new Date(end_date[0],(end_date[1]-1),end_date[2],end_date[3],end_date[4]);
+        function showRemaining() { 
+            var now = new Date(); 
+            var distDt = temp_date.getTime() - now.getTime(); 
+
+            if (distDt < 0) { 
+                clearInterval(timer); 
+                temp_target.find('.d').html('0일'); 
+                temp_target.find('.h').html('0시간'); 
+                temp_target.find('.m').html('0분'); 
+                temp_target.find('.s').html('0초'); 
+                return; 
+            } 
+            var days = Math.floor(distDt / _day); 
+            var hours = Math.floor((distDt % _day) / _hour); 
+            var minutes = Math.floor((distDt % _hour) / _minute); 
+            var seconds = Math.floor((distDt % _minute) / _second); 
+            temp_target.find('.d').html(days+'일'); 
+            temp_target.find('.h').html(hours+'시간'); 
+            temp_target.find('.m').html(minutes+'분'); 
+            temp_target.find('.s').html(seconds+'초'); 
+            temp_target.removeClass('displaynone');
+        }
+        timer = setInterval(showRemaining, 1000);
+    }
+});
+		
+			var swiper = new Swiper(".pajamaSlide", {
+			  effect : "fade",
+			  speed : 1000,
+			  autoplay: {
+				delay: 1800,
+				disableOnInteraction: false,
+			  },
+			  loop: true,
+			});
+		</script>
+</html>
+
+
+
