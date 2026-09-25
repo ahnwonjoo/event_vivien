@@ -1,0 +1,484 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+<style>
+	*{box-sizing: border-box; margin: 0; padding: 0;}
+	div.container{
+		width: 800px;
+		padding: 0;
+		margin: 0 auto;
+		position: relative;
+        line-height:0;
+	}
+	div.container img{height: 100%; display: block;}
+
+	div.partition{
+		display: flex;
+	}
+
+   .bgColor {width: 800px; height: 100px; display: block;} 
+	.bgPk {background-color: #FFCEEB; Height: 40px;}
+	.bgbk {background-color: #0E0B0E; height: 50px;}
+	.bgWh {background-color: #fff;}
+	.bgGr {background-color: #DEDEDE;}
+	.img { display:block; line-height:0; }
+    .bgBk2 {background-color: #050610;}
+
+    
+    .displaynone { display: none !important; } /*24시간 이상일 때는 좌측 텍스트 숨기기위해 꼭 필요*/
+	.ptause_timer_box .timer span  { font-family:'Noto Sans KR' !important;}
+
+	@import url('//fonts.googleapis.com/earlyaccess/notosanskr.css');
+	@import url('//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff');
+	@import url('//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff2');
+
+	.ptause_timer_box { position:relative; }
+	.ptause_timer_box .img_box { line-height:0; }
+	.ptause_timer_box .time_box { position:absolute; left:0; width:100%; z-index:1; bottom:68px; padding:0 120px; display:flex; -webkit-box-pack:justify; -ms-flex-pack:justify; justify-content:space-between; -webkit-box-sizing:border-box; -moz-box-sizing:border-box; box-sizing:border-box;}
+	.ptause_timer_box .time_box span { display:block; width:46px; 
+		height:110px; 
+		font-size:80px; 
+		font-weight:600; 
+		text-align:center; 
+		color: #FFF;
+		display:-webkit-box; 
+		display:-webkit-flex; 
+		display:-ms-flexbox; 
+		display:flex; 
+		-webkit-align-items:center; 
+		align-items:center; 
+		-webkit-justify-content:center; 
+		justify-content:center;
+		}
+
+
+	div.tabMenu {
+    display: block;
+    height: 94px; /* 84px -> 94px (총 10px 여유 공간) */
+    background-color: #050610;
+}
+	div.tabMenu .inner {
+		/* .inner는 .content-wrap을 감싸는 컨테이너 역할 */
+		width: 100%;
+		height: 100%;
+		margin: 0 auto;
+	}
+	div.tabMenu .inner .content-wrap {
+		display: flex; /* 버튼을 가로로 배열 */
+		width: 70%; /* 전체 .inner 너비 대비 60%만 사용 */
+		margin: 0 auto; /* 중앙 정렬 (좌우 20%씩 배경 영역 생성) */
+		height: 100%;
+	}
+	div.tabMenu .inner .content-wrap .tabButton{
+        display: inline-block;
+        width: 45%; 
+        background-color: #050610;
+        border: none;
+        color: #B3AEAD;
+        text-align: center;
+        text-decoration: none;
+        font-size: 36px;
+        padding: 20px 0; /* 패딩은 텍스트 중앙 정렬을 위해 유지 */
+        letter-spacing: -2px;
+        font-weight: 500;
+        position: relative;
+        cursor : pointer;
+        /* [제거] border-bottom 관련 속성 모두 제거 */
+    }
+	/* 두 번째 버튼에 중앙 여백 10% 추가 */
+	div.tabMenu .inner .content-wrap .tabButton:nth-child(2) {
+		margin-left: 10%; 
+	}
+	div.tabMenu .inner .content-wrap .tabButton.active{ 
+		background:#050610;
+		color:#fff;
+		text-shadow: 0 0 3px #D2A18B, 0 0 5px #FFAE00;
+	}
+    /* [새로 추가] active 상태일 때 가상 요소를 이용해 경계선 생성 */
+    div.tabMenu .inner .content-wrap .tabButton.active:after {
+        content: '';
+        position: absolute;
+        height: 2px;
+        width: 100%; 
+        background-color: #FFF2A7;
+        bottom: 10px; /* 탭 버튼 바닥에서 10px 위로 띄움 */
+        left: 0;
+    }
+	/* === 상단 고정 (Fixed) 시 스타일 === */
+	div.tabMenu.fixed .inner { 
+		position: fixed; 
+		top: 70px; 
+		left: 50%; 
+		width: 800px; /* PC 환경의 고정된 너비 */
+		margin-left: -400px; 
+		z-index: 10;
+		background-color: #050610; 
+		/* 문제 해결을 위해 height: 100%를 제거하고, 명시적인 높이 (84px)를 설정합니다. */
+   		height: 94px;
+	}
+    .event_timer_box { clear:both; display:block; background:#FFEAF4; height:70px; }
+    .event_timer_box .timer_bar { display:block; position:relative; width:calc(100% - 76px); height:4px; margin:0 auto; background:#fff; }
+    .event_timer_box .timer_bar span { display:block; position:absolute; top:0; left:0; width:10%; height:100%; background:#FF4E9C; }
+    .event_timer_box .timer_txt { display:block; position:relative; width:calc(100% - 76px); margin:7px auto 0; font-family:'SUIT'; font-weight:700; font-size:28px; line-height:43px; color:#FF4E9C; }
+    
+
+	.vivi_timer_box { position:relative; }
+    .vivi_timer_box .bg { line-height:0; }
+    .vivi_timer_box .timer { position:absolute; left:0; width:100%; bottom:5.5vw; text-align:center; }
+    .vivi_timer_box .timer span { display:inline-block; vertical-align:top; color:#FFF; margin:0 1vw; letter-spacing:-1px; font-size:4.3vw; 
+	font-family: 'Noto Sans KR', sans-serif !important;
+	}
+    .vivi_timer_box .timer span.ss { min-width:0;}
+    .vivi_timer_box .timer span.d:after { content:'일'; letter-spacing: -1px; margin: 0 6px 0 0; font-family:'SUIT-Regular','Pretendard','Apple SD Gothic Neo';} 
+    .vivi_timer_box .timer span.h:after { content:'시 '; }
+    .vivi_timer_box .timer span.m:after { content:'분 '; }
+    .vivi_timer_box .timer span.s:after { content:'초'; }
+    .vivi_timer_box p { display:none; padding:30px 0; width:100%; line-height:1; color:#FFF576; text-align:center; background:#999; font-size:15px;
+	font-family: 'Noto Sans KR', sans-serif !important;
+	}
+	@import url('//fonts.googleapis.com/earlyaccess/notosanskr.css');
+    .vivi_timer_box.ended .bg,
+    .vivi_timer_box.ended .timer { display:none; }
+    .vivi_timer_box.ended p { display:block; }
+
+
+
+    @media screen and (min-width: 800px) {
+    	.vivi_timer_box .timer { bottom:54px; }
+    	.vivi_timer_box .timer span { font-size:30px; margin:0 6px; }
+        .vivi_timer_box .timer span.ss { min-width:0px; }
+    }
+
+	@media screen and (min-width: 600px) {
+	div.container {width: 800px; margin: 0 auto;}
+	.unterFloating {display: none;}
+	}
+
+	@media screen and (max-width: 600px) {
+	div.container, div.container img {width: 100%;}
+
+    .bgColor{width: 100%; height: 50px;}
+    .bgbk{height: 20px;}
+    .ptause_timer_box .time_box { bottom:8.5vw; padding:0 15vw; }    
+    .ptause_timer_box .time_box span { width:5.8vw; height:13.5vw; font-size:11.2vw; }
+
+
+	/* 모바일에서 고정 시 전체 너비 사용 */
+	div.tabMenu {
+        height: 52px;
+	}
+    div.tabMenu .tabButton{
+        font-size: 5vw;
+        padding: 30px 0;
+    }
+    div.tabMenu.fixed .inner {
+        width: 100%;
+        margin-left: 0;
+        left: 0;
+		/* top 값은 JS에서 40px 또는 80px로 동적 처리 */
+
+		/* 모바일에서도 고정 시 길어지는 것을 방지하기 위해 명시적 높이 설정 */
+        height: 52px;
+    }
+    
+    div.tabMenu .inner .content-wrap .tabButton{
+        font-size: 5vw;
+        padding: 10px 0;
+    }
+	 div.tabMenu .inner .content-wrap .tabButton.active:after {
+		bottom: 7px;
+	 } 
+	}
+</style>
+	<div class="container">
+		<div class="img"><img src="https://vivien12.cafe24.com/promo/bf25encore/bf25-sda-1.jpg"></div>
+        <div class="ptause_timer_box">
+            <div class="img_box"><img src="http://vivien12.cafe24.com/promo/bf25encore/bf25-sda-timer.jpg"></div>
+            <div class="time_box" id="ptause_timer" data-enddate="2025-12-10 09:59:59"></div>
+        </div>
+        <div class="img" id="ta0"><img src="https://vivien12.cafe24.com/promo/bf25encore/bf25-sda-ta-0.jpg"></div>
+		<div class="tabMenu">
+            <div class="inner">
+                <div class="content-wrap">
+                    <button type="button" class="tabButton active" data-target="section1">랜덤 쇼핑지원금</button>
+                    <button type="button" class="tabButton" data-target="section2">기모 팬츠 특가</button>
+                </div>
+            </div>
+        </div>
+		<div class="section1">
+            <div class="img"><img src="https://vivien12.cafe24.com/promo/bf25encore/bf25-sda-ta-1.jpg"></div>
+            <div class="dpromotion-area" data-id="CACFBBCGBFBFFDDEBADB"><br style="display:none;"/></div>
+		</div>
+		<div class="section2">
+            <div class="img"><img src="https://vivien12.cafe24.com/promo/bf25encore/bf25-sda-ta-2.jpg"></div>
+            <div class="partition">
+                <a href="https://vivien-mall.com/product/detail.html?product_no=3376" target="_self"><img src="http://vivien12.cafe24.com/promo/bf25encore/bf25-sda-ta-2-1.jpg"></a>
+                <a href="https://vivien-mall.com/product/detail.html?product_no=3380" target="_self"><img src="http://vivien12.cafe24.com/promo/bf25encore/bf25-sda-ta-2-2.jpg"></a>
+            </div>
+            <div class="partition">
+                <a href="https://vivien-mall.com/product/detail.html?product_no=3342" target="_self"><img src="http://vivien12.cafe24.com/promo/bf25encore/bf25-sda-ta-2-3.jpg"></a>
+                <a href="https://vivien-mall.com/product/detail.html?product_no=3344" target="_self"><img src="http://vivien12.cafe24.com/promo/bf25encore/bf25-sda-ta-2-4.jpg"></a>
+            </div>
+		</div>
+        <div class="bgColor bgBk2"></div>
+        <div class="img"><img src="http://vivien12.cafe24.com/promo/bf25-2-title.jpg"></div>
+		<div class="partition">
+				<a href="#section01" target="_self"><img src="http://vivien12.cafe24.com/promo/bf25encore/bf25-2-01.jpg"></a>
+				<a href="#section02" target="_self"><img src="http://vivien12.cafe24.com/promo/bf25encore/bf25-2-02.jpg"></a>
+			</div>
+			<div class="partition">
+				<a href="#section03" target="_self"><img src="http://vivien12.cafe24.com/promo/bf25encore/bf25-2-03.jpg"></a>
+				<a href="#section04" target="_self"><img src="http://vivien12.cafe24.com/promo/bf25encore/bf25-2-04.jpg"></a>
+			</div>
+			<div id="section01">
+				<div class="img"><img src="http://vivien12.cafe24.com/promo/bf25encore/bf25-3.jpg"></div>
+				<a href="https://vivien-mall.com/myshop/coupon/coupon.html" target="_self"><img src="http://vivien12.cafe24.com/promo/bf25encore/bf25-3-bt.jpg"></a>
+				<div class="evenTguide img">
+					<img src='http://vivien12.cafe24.com/promo/bf25encore/bf25-3-plus.jpg' style="display: block; margin: 0px auto; text-align: center; cursor:pointer;"
+					name="close"
+					onClick="if(this.name == 'close'){ this.src='http://vivien12.cafe24.com/promo/bf25encore/bf25-3-minus.jpg';this.name='open' }
+					else{ this.src='http://vivien12.cafe24.com/promo/bf25encore/bf25-3-plus.jpg';this.name='close'; }" />
+				</div>
+			</div>
+			<div id="section02">
+				<div class="img"><img src="http://vivien12.cafe24.com/promo/bf25encore/bf25-4.jpg"></div>
+				<div class="img"><img src="http://vivien12.cafe24.com/promo/bf25encore/bf25-4-minus.jpg"></div>
+				<div class="partition">
+					<a href="https://vivien-mall.com/product/detail.html?product_no=2542" target="_self"><img src="http://vivien12.cafe24.com/promo/bf25encore/bf25-4-1.jpg"></a>
+					<a href="https://vivien-mall.com/product/detail.html?product_no=3402" target="_self"><img src="http://vivien12.cafe24.com/promo/bf25encore/bf25-4-2.jpg"></a>
+				</div>
+				<div class="partition">
+					<a href="https://vivien-mall.com/product/detail.html?product_no=3668" target="_self"><img src="http://vivien12.cafe24.com/promo/bf25encore/bf25-4-3.jpg"></a>
+					<a href="https://vivien-mall.com/product/detail.html?product_no=3400" target="_self"><img src="http://vivien12.cafe24.com/promo/bf25encore/bf25-4-4.jpg"></a>
+				</div>
+				<div class="partition">
+					<a href="https://vivien-mall.com/product/detail.html?product_no=2542" target="_self"><img src="http://vivien12.cafe24.com/promo/bf25encore/bf25-4-5.jpg"></a>
+					<a href="https://vivien-mall.com/product/detail.html?product_no=3669" target="_self"><img src="http://vivien12.cafe24.com/promo/bf25encore/bf25-4-6.jpg"></a>
+				</div>
+			</div>			
+			<div class="bgColor bgPk"></div>
+			<div id="section_none">
+				<div class="img"><img src="http://vivien12.cafe24.com/promo/bf25encore/bf25-pajama-1.jpg"></div>
+				<div class="partition">
+					<a href="https://vivien-mall.com/product/detail.html?product_no=3630" target="_self"><img src="http://vivien12.cafe24.com/promo/bf25encore/bf25-5-1.jpg"></a>
+					<a href="https://vivien-mall.com/product/detail.html?product_no=2799" target="_self"><img src="http://vivien12.cafe24.com/promo/bf25encore/bf25-5-2.jpg"></a>
+				</div>
+				<div class="partition">
+					<a href="https://vivien-mall.com/product/detail.html?product_no=3284" target="_self"><img src="http://vivien12.cafe24.com/promo/bf25encore/bf25-5-3.jpg"></a>
+					<a href="https://vivien-mall.com/product/detail.html?product_no=3635" target="_self"><img src="http://vivien12.cafe24.com/promo/bf25encore/bf25-5-4.jpg"></a>
+				</div>
+			</div>
+			<div class="bgColor bgGr"></div>
+			<div id="section03">
+				<div class="img"><img src="http://vivien12.cafe24.com/promo/bf25new/bf25-5.jpg"></div>
+				<div class="img"><a href="https://vivien-mall.com/product/list.html?cate_no=744" target="_self"><img src="http://vivien12.cafe24.com/promo/bf25-5-bt.jpg"></a></div>
+			</div>
+			<div class="bgColor bgbk"></div>
+			<div id="section04">
+				<div class="img"><img src="http://vivien12.cafe24.com/promo/bf25encore/bf25-6.jpg"></a></div>
+				<div class="partition">
+					<a href="https://vivien-mall.com/product/detail.html?product_no=2982" target="_self"><img src="http://vivien12.cafe24.com/promo/bf25encore/bf25-6-1.jpg"></a>
+					<a href="https://vivien-mall.com/product/detail.html?product_no=3574" target="_self"><img src="http://vivien12.cafe24.com/promo/bf25encore/bf25-6-2.jpg"></a>
+				</div>
+				<div class="partition">
+					<a href="https://vivien-mall.com/product/detail.html?product_no=3416" target="_self"><img src="http://vivien12.cafe24.com/promo/bf25encore/bf25-6-3.jpg"></a>
+					<a href="https://vivien-mall.com/product/detail.html?product_no=3376" target="_self"><img src="http://vivien12.cafe24.com/promo/bf25encore/bf25-6-4.jpg"></a>
+				</div>
+				<div class="img"><a href="https://vivien-mall.com/product/promo25/bf25-short.html?cate_no=257" target="_self"><img src="http://vivien12.cafe24.com/promo/bf25encore/bf25-5-bt.jpg"></a></div>
+			</div>
+			<div class="bgColor bgWh"></div>
+			<div class="evenTguide img">
+				<img src='http://vivien12.cafe24.com/promo/bf25-plus.jpg' style="display: block; margin: 0px auto; text-align: center; cursor:pointer;"
+				name="close"
+				onClick="if(this.name == 'close'){ this.src='http://vivien12.cafe24.com/promo/bf25-minus.jpg';this.name='open' }
+				else{ this.src='http://vivien12.cafe24.com/promo/bf25-plus.jpg';this.name='close'; }" />
+			</div>
+
+
+	</div>
+	<script>
+		 $(document).ready(function(){
+			// ****************************
+			// 타이머 로직 (기존 코드 유지)
+			// ****************************
+			var _second = 1000; 
+			var _minute = _second * 60; 
+			var _hour = _minute * 60; 
+			var _day = _hour * 24;
+
+			var temp_target = $("#ptause_timer");
+			if(temp_target.length>0 && temp_target.data('enddate')){
+				temp_target.append('<span class="h"></span><span class="m"></span><span class="s"></span><span class="ss"></span>');
+				
+				var timer;
+				var end_date = temp_target.data('endDate').replace(/(\s+)|:/g,'-').split('-');
+				var temp_date = new Date(end_date[0],(end_date[1]-1),end_date[2],end_date[3],end_date[4]);
+				function showRemaining() { 
+					var now = new Date(); 
+					var distDt = temp_date.getTime() - now.getTime(); 
+
+					if (distDt < 0) { 
+						clearInterval(timer); 
+						temp_target.find('.h').html('0'); 
+						temp_target.find('.m').html('0'); 
+						temp_target.find('.s').html('0'); 
+						temp_target.find('.ss').html('0'); 
+						return; 
+					} 
+					var hours = Math.floor(distDt / _hour); 
+					var minutes = Math.floor((distDt % _hour) / _minute); 
+					var seconds = Math.floor((distDt % _minute) / _second);
+					var microsec = Math.floor((distDt % _second) / 10);  // 0~99 사이로 줄이기
+					if (microsec < 10) microsec = '0' + microsec;
+					temp_target.find('.h').html(hours); 
+					temp_target.find('.m').html(minutes); 
+					temp_target.find('.s').html(seconds); 
+					temp_target.find('.ss').html(microsec); 
+					temp_target.removeClass('displaynone');
+				}
+				timer = setInterval(showRemaining, 1);
+			}
+			
+			// Swiper 
+			var swiper = new Swiper(".pajamaSlide", {
+				spaceBetween: 30,
+				effect: "fade",
+				speed: 800,
+				loop: true,
+				autoplay: {
+					delay: 2500,
+					disableOnInteraction: false,
+				},
+			});
+			//부드럽게 이동
+			$('a[href^="#"]').click(function(e) {
+				var href = $(this).attr('href');
+				if (href.length > 1 && $(href).length > 0) {
+					e.preventDefault();
+					var pos = $(href).offset().top;
+					$("html, body").animate({ scrollTop: pos }, 600);
+					}
+				}); 
+			});
+
+
+		// ****************************
+		// 탭 메뉴 및 스크롤 로직 (수정)
+		// ****************************
+		var lastScrollTop = 0; 
+		var isScrolling = false; // 플래그 유지
+
+		function getFixedTopOffset(isMobile, PJ_scroll) {
+			if (isMobile) {
+				if (PJ_scroll > lastScrollTop) {
+					return 40; // 스크롤 DOWN
+				} else {
+					return 80; // 스크롤 UP
+				}
+			}
+			return 70; // PC
+		}
+
+		$(window).scroll(function (e) {
+			var PJ_scroll = $(window).scrollTop();
+			var $tabMenu = $('.tabMenu');
+			var $tabMenuInner = $('.tabMenu .inner');
+			
+			// --- 1. 스크롤 애니메이션 중지 플래그 확인 ---
+			// isScrolling이 true이면, 자동 활성화 로직 및 고정 로직을 실행하지 않고 리턴
+			if (isScrolling) {
+				lastScrollTop = PJ_scroll;
+				return; 
+			}
+			
+			var isMobile = $(window).width() <= 600;
+			
+			// 동적 top 값 계산
+			var fixed_top_offset = getFixedTopOffset(isMobile, PJ_scroll);
+			
+			// 탭 메뉴 고정 시작 기준점
+			var tabMenuStart = $tabMenu.offset().top - fixed_top_offset; 
+			
+			// 탭 메뉴 고정 해제 기준점: section2 다음 요소 (div.bgColor.bgBk2)
+			var stop_point = $(".bgBk2").offset().top - fixed_top_offset; 
+			
+			lastScrollTop = PJ_scroll;
+			
+			// === 탭 메뉴 고정/해제 로직 ===
+			if(PJ_scroll < tabMenuStart) {
+				$tabMenu.removeClass('fixed');
+			} 
+			else if(PJ_scroll > stop_point) { 
+				$tabMenu.removeClass('fixed');
+			} 
+			else {
+				$tabMenu.addClass('fixed');
+				$tabMenuInner.css('top', fixed_top_offset + 'px');
+			}
+			
+			// ****************************************
+			// 탭 버튼 활성화 로직 (스크롤에 의한 Active 상태 반영)
+			// ****************************************
+			var tabMenuHeight = $tabMenu.height();
+			
+			$(".container > div[class^=section]").each(function(){
+				var sectionName = $(this).attr('class');
+				
+				if (sectionName.indexOf('section1') !== -1 || sectionName.indexOf('section2') !== -1) {
+					
+					var activation_offset = fixed_top_offset + tabMenuHeight; 
+					
+					if((PJ_scroll > $(this).offset().top - activation_offset) && (PJ_scroll <= $(this).offset().top + $(this).height() - activation_offset)){
+						var targetData = sectionName.split(' ')[0];
+						var $targetButton = $tabMenu.find(".tabButton[data-target='" + targetData + "']");
+						
+						if(!$targetButton.hasClass('active')){
+							$tabMenu.find(".tabButton").removeClass('active');
+							$targetButton.addClass('active');
+						}
+					}
+				}
+			});
+		});
+
+
+		// ****************************************
+		// 탭 클릭 이벤트 핸들러 (수정: e 인자 추가 및 깜빡임 방지 플래그 사용)
+		// ****************************************
+		$(".tabButton").click(function(e){
+			// e 인자 추가 (버튼 요소이므로 preventDefault 불필요)
+			
+			// 1. 수동 Active 설정 (즉시 적용)
+			$(".tabButton").removeClass('active');
+			$(this).addClass('active');
+
+			// 2. 스크롤 이동 목표 위치 계산
+			var targetSectionClass = $(this).attr('data-target');
+			var $targetSection = $("." + targetSectionClass);
+			
+			var isMobile = $(window).width() <= 600;
+			
+			// 클릭 시에는 헤더가 축소된 위치(모바일 40px, PC 70px)를 기준으로 스크롤 목표 설정
+			var offset = isMobile ? 40 : 70; 
+
+			var target_scroll = $targetSection.offset().top - offset;
+			
+			// 3. 스크롤 중 플래그 활성화 (이동 전에 실행)
+			isScrolling = true; 
+			
+			// 4. 애니메이션 실행 및 완료 시 플래그 해제
+			$('body,html').animate({scrollTop:target_scroll}, 400, function() {
+				// 애니메이션 완료 후 플래그 해제 (스크롤 자동 감지 로직 다시 시작)
+				isScrolling = false; 
+			});
+		});
+
+		</script>
+</html>
